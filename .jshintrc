@@ -1,0 +1,14 @@
+{
+  "undef": true,
+  "unused": true,
+  "predef": [
+    "MY_GLOBAL"
+  ],
+  "globals": {
+    "require": false,
+    "console": false,
+    "module": false,
+    "RelaticsAPI": false,
+    "RelaticsAPI.*": false
+  }
+}

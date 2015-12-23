@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Development of flexbox tool.</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <script src="javascript/ZUIDAS_mutation.js"></script>
+
+    <script src="../../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="../../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../../node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="../../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <!-- 2. Configure SystemJS -->
+
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+
+        System.import('boot')
+                .then(null, console.error.bind(console))
+
+    </script>
+
+
+</head>
+<body>
+
+<my-app>
+    Loading...
+
+</my-app>
+
+<input class="btn" type="button" value="Mutatie aanmaken" onclick="testSoapResponse()">
+
+
+
+<!-- BUTTONs-->
+<input type="button" specCode=[specCode]
+       specID=[specID]
+       specIDUpper=[specIDUpper]
+       specName=[specName]
+       specDescription=[specDescription]
+       specRemark=[specRemark]
+       specBouwfasering=[specBouwfasering]
+       specWegennet=[specWegennet]
+       specTTI=[specTTI]
+       specRemark=[specRemark] value="MUTATIE AANMAKEN" onclick="createMutationSpecification(this)">
+
+
+<input type="button"  objectCode=[objectCode]
+       objectName=[objectName]
+       objectID=[objectID]
+       objectIDUpper=[objectIDUpper] value="MUTATIE AANMAKEN" onclick="createMutationObject(this)">
+
+
+<input type="button" functionCode=[functionCode]
+       functionName=[functionName]
+       functionRemark=[functionRemark]
+       functionID=[functionID]
+       functionIDUpper=[functionIDUpper]
+       value="MUTATIE AANMAKEN" onclick="createMutationFunction(this)">
+
+
+<input type="button"
+       fragmentID=[fragmentID]
+       fragmentCode=[fragmentCode]
+       value="MUTATIE AANMAKEN" onclick="createMutationFragment(this)">
+
+        This
+
+
+</body>
+</html>
