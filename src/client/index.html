@@ -6,8 +6,6 @@
     <link rel="stylesheet" href="styles/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <script src="javascript/ZUIDAS_mutation.js"></script>
-
     <script src="../../node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="../../node_modules/systemjs/dist/system.src.js"></script>
     <script src="../../node_modules/rxjs/bundles/Rx.js"></script>
@@ -33,48 +31,62 @@
 </head>
 <body>
 
-<my-app>
-    Loading...
+<div class="container">
+    <nav>
 
-</my-app>
-
-<input class="btn" type="button" value="Mutatie aanmaken" onclick="testSoapResponse()">
+        <div id="header-text">SEm Tree Environment</div>
 
 
+    </nav>
 
-<!-- BUTTONs-->
-<input type="button" specCode=[specCode]
-       specID=[specID]
-       specIDUpper=[specIDUpper]
-       specName=[specName]
-       specDescription=[specDescription]
-       specRemark=[specRemark]
-       specBouwfasering=[specBouwfasering]
-       specWegennet=[specWegennet]
-       specTTI=[specTTI]
-       specRemark=[specRemark] value="MUTATIE AANMAKEN" onclick="createMutationSpecification(this)">
+    <main>
+
+        <form class="form-container">
+
+            <div class="col col1">
+                <label for="">Workspace ID</label>
 
 
-<input type="button"  objectCode=[objectCode]
-       objectName=[objectName]
-       objectID=[objectID]
-       objectIDUpper=[objectIDUpper] value="MUTATIE AANMAKEN" onclick="createMutationObject(this)">
+                <input type="text" class="form-input">
 
 
-<input type="button" functionCode=[functionCode]
-       functionName=[functionName]
-       functionRemark=[functionRemark]
-       functionID=[functionID]
-       functionIDUpper=[functionIDUpper]
-       value="MUTATIE AANMAKEN" onclick="createMutationFunction(this)">
+            </div>
+            <div class="col col2">
+                <label for="">Operation name</label>
+
+                <input type="text" class="form-input">
+            </div>
+            <div class="col col3">
+                <label for="">Entry code</label>
+                <input type="text" class="form-input">
+            </div>
+            <div class="col col4">
+                <input type="button" value="Generate Graph">
+            </div>
+
+        </form>
+        <div class="main-container">
+
+            <h1>We gaan thee drinken</h1>
+
+            <h2>Rashaida I love u</h2>
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur deleniti nihil quae quam reiciendis. Culpa fugit natus nulla odit omnis perspiciatis repudiandae sint sit voluptatibus? Corporis nihil placeat reiciendis sapiente. Accusantium amet asperiores commodi corporis eligendi, ex hic id perspiciatis qui recusandae totam ullam. Alias beatae deleniti fuga inventore nisi obcaecati quos suscipit. Asperiores aspernatur corporis rem repudiandae ut. Amet aut dolorum eius esse exercitationem hic ipsam labore molestiae tempore voluptatum. Dicta doloremque doloribus incidunt, magnam neque repudiandae saepe velit voluptatibus voluptatum? Eum ipsum, officiis placeat quia quis vero. Debitis incidunt officiis optio placeat reiciendis sint, suscipit vero voluptatum.
+
+        </div>
 
 
-<input type="button"
-       fragmentID=[fragmentID]
-       fragmentCode=[fragmentCode]
-       value="MUTATIE AANMAKEN" onclick="createMutationFragment(this)">
+    </main>
 
-        This
+    <footer>
+
+        <div id="author">
+            Author: Rashied Imambaks
+        </div>
+
+    </footer>
+
+</div>
 
 
 </body>
