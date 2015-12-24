@@ -20,6 +20,8 @@ $color_fluidity: #00a9e4;
 $color_strength: #e41f13;
 * {
   box-sizing: border-box;
+  font-family: Fjord, SansSerif, "Lucida Grande", Verdana, Arial, sans-serif;
+
 }
 
 /* FONT S*/
@@ -32,7 +34,6 @@ $color_strength: #e41f13;
 body, html {
   height: 100%;
   margin: 0;
-  font-family: Fjord, SansSerif, "Lucida Grande", Verdana, Arial, sans-serif;
 }
 
 .container, nav, main, footer, col {
@@ -75,7 +76,6 @@ main {
   color: $color_know_how;
 }
 
-
 #author {
   font-size: 0.75em;
   color: $color_know_how;
@@ -89,21 +89,21 @@ main {
   padding: 8px;
 }
 
-
 .form-container {
   display: flex;
+  width: 720px;
   flex-flow: row wrap;
-  background: rgba($color_know_how,0.1);
+  background: rgba($color_know_how, 0.1);
   justify-content: space-around;
   padding: 10px 20px;
-  margin-bottom: 10px;
   align-content: center;
+  margin: auto;
 }
-
 
 .form-input {
   margin: auto;
 }
+
 .main-container {
   flex: 1 1 300px;
 
@@ -111,14 +111,54 @@ main {
 
 .col {
   position: relative;
+flex-flow: column wrap;
 }
 
+.btn {
+  width: 216px;
+  height: 80px;
+  background: $color_integrity;
+  border: none;
+  box-shadow: 0 4px 4px $color_collaboration;
+  
+  &:hover {
+    
+    box-shadow: 0 5px 4px darken($color_collaboration, 0.6);
+    background: darken($color_integrity,0.6);
+    cursor: pointer;
 
+    
+  }
 
+  &:focus {
+    outline: none;
+  }
 
-.col4  input {
-  align-self: flex-end;
 }
+
+.generate {
+  background: rgba($color_know_how, 0.1);
+  padding: 15px;
+  width: 720px;
+  margin: auto;
+
+
+
+  input {
+    font-size: 1.2em;
+    margin: auto;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+
+
+    &:hover{
+    bottom: 2px;
+    padding-bottom: 2px;
+  }
+  }
+
+}
+
 
 
 
