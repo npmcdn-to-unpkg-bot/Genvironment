@@ -147,13 +147,13 @@ flex-flow: column wrap;
   input {
     font-size: 1.2em;
     margin: auto;
+    transition:all 0.2s ease-in-out;
     position: relative;
-    transition: all 0.5s ease-in-out;
 
 
     &:hover{
     bottom: 2px;
-    padding-bottom: 2px;
+    padding-bottom: -2px;
   }
   }
 
