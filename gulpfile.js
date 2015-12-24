@@ -39,7 +39,12 @@ gulp.task('serve', function () {
 
     browserSync({
         server: {
-            baseDir: './src/client/'
+            baseDir: './src/client/',
+            routes: {
+                "/node_modules": "node_modules"
+            }
+
+
         }
     });
 
