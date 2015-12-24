@@ -105,10 +105,10 @@ export class AppComponent {
                     duration = 750,
                     root;
 
-            console.log(data);
 
                 var tree = d3.layout.tree()
                     .size([height, width]);
+
 
                 var diagonal = d3.svg.diagonal()
                     .projection(function (d) {
@@ -129,6 +129,8 @@ export class AppComponent {
                     root.y0 = 0;
 
                     function collapse(d) {
+
+                        console.log("HOIHOI12321" + d)
                         if (d.children) {
                             d._children = d.children;
                             d._children.forEach(collapse);
@@ -139,6 +141,8 @@ export class AppComponent {
                     root.children.forEach(collapse);
                     update(root);
                 });
+
+                console.log(data);
 
                 d3.select(self.frameElement).style("height", "800px");
 
