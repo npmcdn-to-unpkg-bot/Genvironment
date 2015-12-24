@@ -22,18 +22,18 @@ gulp.task('styles', function () {
 });
 
 
-gulp.task('scripts', function () {
-    "use strict";
-
-    console.log('compiling js');
-
-    return gulp
-        .src(config.alljs)
-        .pipe($.concat('all.js'))
-        .pipe($.uglify())
-        .pipe(gulp.dest(config.js));
-
-});
+//gulp.task('scripts', function () {
+//    "use strict";
+//
+//    console.log('compiling js');
+//
+//    return gulp
+//        .src(config.alljs)
+//        .pipe($.concat('all.js'))
+//        .pipe($.uglify())
+//        .pipe(gulp.dest(config.js));
+//
+//});
 
 gulp.task('serve', function () {
 
@@ -60,9 +60,9 @@ gulp.task('clean-styles', function () {
 
 gulp.task('watch', function () {
     gulp.watch(config.sass, ['styles', browserSync.reload]);
-    gulp.watch(config.client, [browserSync.reload]);
-    gulp.watch(config.alljs, ['scripts']);
+    gulp.watch(config.client, browserSync.reload);
+    //gulp.watch(config.alljs, ['scripts']);
 
 });
 
-gulp.task('default', ['styles', 'scripts', 'serve', 'watch']);
+gulp.task('default', ['styles', 'serve', 'watch']);

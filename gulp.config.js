@@ -11,7 +11,7 @@ module.exports = function () {
         temp: './tmp',
 
         /* Files path */
-        client: client + '/*',
+        client: [client + '/*',client + '/**/*.js', !client + '/**/boot.js'],
         alljs: [
             './src/**/*.js',
             './*.js'
