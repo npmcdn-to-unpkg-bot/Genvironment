@@ -8,6 +8,7 @@
     <script src="../../node_modules/systemjs/dist/system.src.js"></script>
     <script src="../../node_modules/rxjs/bundles/Rx.js"></script>
     <script src="../../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="../../node_modules/d3/d3.js"></script>
     <!-- 2. Configure SystemJS -->
 
     <script>
@@ -24,8 +25,31 @@
                 .then(null, console.error.bind(console));
 
 
-
     </script>
+
+    <style>
+
+        .node {
+            cursor: pointer;
+        }
+
+        .node circle {
+            fill: #fff;
+            stroke: steelblue;
+            stroke-width: 1.5px;
+        }
+
+        .node text {
+            font: 10px sans-serif;
+        }
+
+        .link {
+            fill: none;
+            stroke: #ccc;
+            stroke-width: 1.5px;
+        }
+
+    </style>
 
 
 </head>
@@ -79,19 +103,20 @@
             <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque.</h2>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At consequuntur deleniti nihil quae quam
-            reiciendis. Culpa fugit natus nulla odit omnis perspiciatis repudiandae sint sit voluptatibus? Corporis
-            nihil placeat reiciendis sapiente. Accusantium amet asperiores commodi corporis eligendi, ex hic id
-            perspiciatis qui recusandae totam ullam. Alias beatae deleniti fuga inventore nisi obcaecati quos suscipit.
-            Asperiores aspernatur corporis rem repudiandae ut. Amet aut dolorum eius esse exercitationem hic ipsam
-            labore molestiae tempore voluptatum. Dicta doloremque doloribus incidunt, magnam neque repudiandae saepe
-            velit voluptatibus voluptatum? Eum ipsum, officiis placeat quia quis vero. Debitis incidunt officiis optio
-            placeat reiciendis sint, suscipit vero voluptatum.</p>
+                reiciendis. Culpa fugit natus nulla odit omnis perspiciatis repudiandae sint sit voluptatibus? Corporis
+                nihil placeat reiciendis sapiente. Accusantium amet asperiores commodi corporis eligendi, ex hic id
+                perspiciatis qui recusandae totam ullam. Alias beatae deleniti fuga inventore nisi obcaecati quos
+                suscipit.
+                Asperiores aspernatur corporis rem repudiandae ut. Amet aut dolorum eius esse exercitationem hic ipsam
+                labore molestiae tempore voluptatum. Dicta doloremque doloribus incidunt, magnam neque repudiandae saepe
+                velit voluptatibus voluptatum? Eum ipsum, officiis placeat quia quis vero. Debitis incidunt officiis
+                optio
+                placeat reiciendis sint, suscipit vero voluptatum.</p>
 
 
             <my-app>
-               hihi
+                hihi
             </my-app>
-
 
 
         </div>
