@@ -2,7 +2,37 @@
 ARCADIS STYLE SHEET
 */
 
-/* COLOURS */
+
+
+/* =============================
+
+             GENERAL
+
+===============================*/
+
+@font-face {
+  font-family: Open-Sans;
+  src: url('https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2');
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Open-Sans, SansSerif, "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+
+
+
+/*===============================
+
+             COLOURS
+
+================================*/
 
 //  primary colors
 $color_heritage: #e4610f;
@@ -18,23 +48,13 @@ $color_growth: #c3d200;
 $color_fluidity: #00a9e4;
 $color_strength: #e41f13;
 
-* {
-  box-sizing: border-box;
-  font-family: Open-Sans, SansSerif, "Lucida Grande", Verdana, Arial, sans-serif;
 
-}
+/*===============================
 
-/* FONT S*/
+             CONTENT
 
-@font-face {
-  font-family: Open-Sans;
-  src: url('https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2');
-}
+================================*/
 
-body, html {
-  height: 100%;
-  margin: 0;
-}
 
 .container, nav, main, footer, col {
   display: flex;
@@ -109,6 +129,7 @@ main {
 
 .main-container {
   flex: 1 1 300px;
+  margin: auto;
 
 }
 
