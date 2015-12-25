@@ -2,8 +2,6 @@
 ARCADIS STYLE SHEET
 */
 
-
-
 /* =============================
 
              GENERAL
@@ -25,9 +23,6 @@ body, html {
   margin: 0;
 }
 
-
-
-
 /*===============================
 
              COLOURS
@@ -48,13 +43,11 @@ $color_growth: #c3d200;
 $color_fluidity: #00a9e4;
 $color_strength: #e41f13;
 
-
 /*===============================
 
              CONTENT
 
 ================================*/
-
 
 .container, nav, main, footer, col {
   display: flex;
@@ -176,8 +169,33 @@ label {
   font-size: 0.9em;
 }
 
+/* ==================================
 
 
+          TESTING
 
+================================*/
+
+.green {
+  background: green;
+  transition: all 1s ease-in-out;
+  &:hover {
+    color: #00a9e4;
+  }
+}
+
+.red {
+  background: tomato;
+  transition: all 2s ease-in-out;
+
+}
+
+.test {
+  font-size: 4em;
+}
+
+.special {
+  background: goldenrod;
+}
 
 

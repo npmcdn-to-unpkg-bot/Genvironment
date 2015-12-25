@@ -10,11 +10,22 @@ import {error} from "util";
 
 export class AppComponent {
 
-    public title = 'Tour of Heroes';
+    public title = 'Object Tree APP';
+    public isSpecial = false;
+
+
     constructor(private _RelaticsService:RelaticsService) {
 
 
     }
+
+    getColour(colour) {
+
+        var x = (colour === "green") ? "green test":"red";
+        return x
+
+    }
+
 
 
     transformData() {
