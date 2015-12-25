@@ -11,29 +11,20 @@ import {error} from "util";
 export class AppComponent {
 
     public title = 'Tour of Heroes';
-    public hero = 'windstorm';
-    public jsonString = '';
-    public heroes:Array<any> = [];
-
     constructor(private _RelaticsService:RelaticsService) {
 
 
     }
 
 
-    getTree() {
-
-
-        var string = this.jsonString;
+    transformData() {
 
         let myJson = {};
-
 
         this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
             .then(function (data) {
 
-                // alle doelen (test voor nu 1tje)
-
+                // alle doelen
                 let goal = data.getElementsByTagName('doel')[0];
 
 
@@ -92,52 +83,10 @@ export class AppComponent {
 
                 }
 
-                return myJson
+                return JSON.stringify(myJson)
 
 
-            }).then(function (data) {
-                console.log(data);
-
-
-                var margin = {top: 20, right: 120, bottom: 20, left: 120},
-                    width = 960 - margin.right - margin.left,
-                    height = 800 - margin.top - margin.bottom;
-
-                var i = 0,
-                    duration = 750,
-                    root;
-
-
-                var tree = d3.layout.tree()
-                    .size([height, width]);
-
-
-                var diagonal = d3.svg.diagonal()
-                    .projection(function (d) {
-                        return [d.y, d.x];
-                    });
-
-                var svg = d3.select("body").append("svg")
-                    .attr("width", width + margin.right + margin.left)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-                root = data;
-                root.x0 = height / 2;
-                root.y0 = 0;
-
-                function collapse(root) {
-
-                    console.log("d = " + root[0]);
-
-                }
-
-            collapse(root);
-
-            }
-        );
+            });
 
 
     }
