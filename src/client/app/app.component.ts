@@ -21,7 +21,6 @@ export class AppComponent {
     showGraph(data) {
 
 
-
     }
 
     transformData() {
@@ -101,13 +100,12 @@ export class AppComponent {
     ngOnInit() {
         console.log('ngOnInit');
         let x = this.transformData();
-        x.then(function (data) {
-                this.title = JSON.stringify(data);
-                this.graphData = data;
+        x.then((data) => {
+                this.title = JSON.stringify((data);
+                this.showGraph(data);
             }
         );
-        console.log(this.title);
-        this.showGraph(this.graphData);
+
 
     }
 
