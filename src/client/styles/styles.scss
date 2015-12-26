@@ -23,6 +23,10 @@ body, html {
   margin: 0;
 }
 
+
+body {
+  min-height: 100vh;
+}
 /*===============================
 
              COLOURS
@@ -105,20 +109,7 @@ main {
   padding: 8px;
 }
 
-.form-container {
-  display: flex;
-  width: 720px;
-  flex-flow: row wrap;
-  background: rgba($color_know_how, 0.1);
-  justify-content: space-around;
-  padding: 10px 20px;
-  align-content: center;
-  margin: auto;
-}
 
-.form-input {
-  margin: auto;
-}
 
 .main-container {
   flex: 1 1 300px;
@@ -168,34 +159,3 @@ label {
   font-weight: bold;
   font-size: 0.9em;
 }
-
-/* ==================================
-
-
-          TESTING
-
-================================*/
-
-.green {
-  background: green;
-  transition: all 1s ease-in-out;
-  &:hover {
-    color: #00a9e4;
-  }
-}
-
-.red {
-  background: tomato;
-  transition: all 2s ease-in-out;
-
-}
-
-.test {
-  font-size: 4em;
-}
-
-.special {
-  background: goldenrod;
-}
-
-
