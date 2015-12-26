@@ -20,6 +20,52 @@ export class AppComponent {
 
     showGraph(data) {
 
+        var margin = {top: 20, right: 120, bottom: 20, left: 120},
+            width = 960 - margin.right - margin.left,
+            height = 800 - margin.top - margin.bottom;
+
+        var i = 0,
+            duration = 750,
+            root;
+
+        var tree = d3.layout.tree()
+            .size([height, width]);
+
+        var diagonal = d3.svg.diagonal()
+            .projection(function (d) {
+                return [d.y, d.x];
+            });
+
+        var svg = d3.select("body").append("svg")
+            .attr("width", width + margin.right + margin.left)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        root = data;
+        root.x0 = height / 2;
+        root.y0 = 0;
+
+        function collapse(d) {
+            if (d.children) {
+                d._children = d.children;
+                d._children.forEach(collapse);
+                d.children = null;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
@@ -101,7 +147,7 @@ export class AppComponent {
         console.log('ngOnInit');
         let x = this.transformData();
         x.then((data) => {
-                this.title = JSON.stringify((data);
+                this.title = JSON.stringify((data));
                 this.showGraph(data);
             }
         );
