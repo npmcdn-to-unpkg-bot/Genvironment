@@ -11,7 +11,7 @@ import {error} from "util";
 export class AppComponent {
 
     public title = 'Object Tree APP';
-    public isSpecial = false;
+
 
 
     constructor(private _RelaticsService:RelaticsService) {
@@ -19,12 +19,6 @@ export class AppComponent {
 
     }
 
-    getColour(colour) {
-
-        var x = (colour === "green") ? "green test":"red";
-        return x
-
-    }
 
 
 
