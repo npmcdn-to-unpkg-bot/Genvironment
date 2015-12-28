@@ -23,10 +23,10 @@ body, html {
   margin: 0;
 }
 
-
 body {
   min-height: 100vh;
 }
+
 /*===============================
 
              COLOURS
@@ -53,13 +53,12 @@ $color_strength: #e41f13;
 
 ================================*/
 
-.container, nav, main, footer, col {
+.container, nav, main, footer, col, .main-container {
   display: flex;
 }
 
 .container {
-  min-height: 100vh;
-
+  height: 100vmin;
   flex-direction: column;
 }
 
@@ -106,14 +105,18 @@ main {
 
 main {
   flex-direction: column;
+  flex: 1;
   padding: 8px;
 }
 
-
-
 .main-container {
-  flex: 1 1 300px;
-  margin: auto;
+  flex-direction: column;
+
+}
+
+a {
+
+  color: $color_know_how;
 
 }
 
@@ -159,3 +162,39 @@ label {
   font-weight: bold;
   font-size: 0.9em;
 }
+
+/*=========================
+
+
+     Object tree
+
+
+===========================*/
+
+.graph {
+  margin: auto;
+}
+
+.node {
+
+  cursor: pointer;
+
+  circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+  }
+
+  text {
+    font-size: 0.8em;
+  }
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+
+
