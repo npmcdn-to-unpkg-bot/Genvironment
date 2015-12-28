@@ -25,6 +25,8 @@ body, html {
 
 body {
   min-height: 100vh;
+  flex-direction: column;
+
 }
 
 /*===============================
@@ -53,7 +55,7 @@ $color_strength: #e41f13;
 
 ================================*/
 
-.container, nav, main, footer, col, .main-container {
+.container, body, nav, main, footer, col, .main-container {
   display: flex;
 }
 
@@ -171,9 +173,6 @@ label {
 
 ===========================*/
 
-.graph {
-  margin: auto;
-}
 
 .node {
 
@@ -181,12 +180,14 @@ label {
 
   circle {
     fill: #fff;
-    stroke: steelblue;
     stroke-width: 3px;
   }
 
   text {
     font-size: 0.8em;
+    text-decoration: underline;
+    fill: steelblue;
+    font-weight: bolder;
   }
 }
 
@@ -194,7 +195,12 @@ label {
   fill: none;
   stroke: #ccc;
   stroke-width: 2px;
+
 }
 
 
+/* TESTING */
 
+.main-container {
+  flex: 1;
+}

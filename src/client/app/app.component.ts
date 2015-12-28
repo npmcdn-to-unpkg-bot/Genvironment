@@ -10,9 +10,7 @@ import {error} from "util";
 
 export class AppComponent {
 
-    public title:string = '';
     public graphData = {};
-
 
     constructor(private _RelaticsService:RelaticsService) {
 
@@ -20,14 +18,16 @@ export class AppComponent {
 
     showGraph(treeData):void {
 
-        let margin = {top: 20, right: 120, bottom: 20, left: 120},
-            width = 960 - margin.right - margin.left,
-            height = 800 - margin.top - margin.bottom;
+        //TODO typescrypt annotations => for each function.
+
+        let margin = {top: 0, right: 120, bottom: 0, left: 150},
+            width = 1000 - margin.right - margin.left,
+            height = 800- margin.top - margin.bottom;
 
 
         let i = 0,
             root,
-            duration = 700;
+            duration = 600;
 
         let tree = d3.layout.tree()
             .size([height, width]);
@@ -82,7 +82,7 @@ export class AppComponent {
 
             // horizontal spacing
             nodes.forEach(function (d) {
-                d.y = d.depth * 180;
+                d.y = d.depth * 210;
             });
 
             // declare the node variables
@@ -96,17 +96,19 @@ export class AppComponent {
                 .attr("class", "node")
                 .attr("transform", function (d) {
                     return "translate(" + source.y0 + "," + source.x0 + ")";
-                })
-                .on("click", click);
+                });
+
 
             // Enter any new nodes at the parent's previous position.
             nodeEnter.append("circle")
-                .attr("r", 1e-6)
-                .style("fill", function (d) {
-                    return d._children ? "lightsteelblue" : "#fff";
-                });
+                .attr("r", 1e-6).on("click", click);
 
-            nodeEnter.append("text")
+
+            let nodeEnterA = nodeEnter.append("a")
+                .attr("xlink:href", (d) => "https://arcadis.relaticsonline.com/37035202-abf8-4822-b8a5-b492c97a4c83/ShowObject.aspx?Key=" + d.ID)
+                .attr("target", "_blank");
+
+            nodeEnterA.append("text")
                 .attr("x", function (d) {
                     return d.children || d._children ? -13 : 13;
                 })
@@ -114,9 +116,7 @@ export class AppComponent {
                 .attr("text-anchor", function (d) {
                     return d.children || d._children ? "end" : "start";
                 })
-                .text(function (d) {
-                    return d.name;
-                })
+                .text((d) => d.name)
                 .style("fill-opacity", 1e-6);
 
 
@@ -124,15 +124,12 @@ export class AppComponent {
 
             let nodeUpdate = node.transition()
                 .duration(duration)
-                .attr("transform", function (d) {
-                    return "translate(" + d.y + "," + d.x + ")";
-                });
+                .attr("transform", (d) => "translate(" + d.y + "," + d.x + ")");
 
             nodeUpdate.select("circle")
                 .attr("r", 10)
-                .style("fill", function (d) {
-                    return d._children ? "lightsteelblue" : "#fff";
-                });
+                .attr("stroke", (d)=> d.color)
+                .style("fill", (d) => d._children ? tinycolor(d.color).brighten(12).toString() : "#fff");
 
             nodeUpdate.select("text")
                 .style("fill-opacity", 1);
@@ -200,12 +197,16 @@ export class AppComponent {
         return this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
             .then(function (data) {
 
+
+
                 // alle doelen
                 let goal = data.getElementsByTagName('doel')[0];
 
-
+                // initial myJson data
                 myJson["name"] = goal.getAttribute('doel');
+                myJson["ID"] = goal.getAttribute('ID');
                 myJson["children"] = [];
+                myJson["color"] = "purple";
 
 
                 //alle functies
@@ -216,13 +217,23 @@ export class AppComponent {
 
                     let objectArray = functionArray[i].querySelectorAll('object');
 
+
                     if (functionArray[i].querySelectorAll('object').length > 0) {
 
-                        (<any>myJson).children.push({"name": functionArray[i].getAttribute('functie'), "children": []});
+                        (<any>myJson).children.push({
+                            "name": functionArray[i].getAttribute('functie'),
+                            "ID": functionArray[i].getAttribute('ID'),
+                            "color": "goldenrod",
+                            "children": []
+                        });
 
 
                     } else {
-                        (<any>myJson).children.push({"name": functionArray[i].getAttribute('functie')});
+                        (<any>myJson).children.push({
+                            "name": functionArray[i].getAttribute('functie'),
+                            "ID": functionArray[i].getAttribute('ID'),
+                            "color": "goldenrod"
+                        });
                     }
 
 
@@ -237,20 +248,27 @@ export class AppComponent {
 
                             myJson["children"][i].children.push({
                                 "name": objectArray[x].getAttribute('object'),
+                                "ID": objectArray[x].getAttribute('ID'),
+                                "color": "green",
                                 "children": []
                             });
 
                         } else {
                             myJson["children"][i].children.push({
-                                "name": objectArray[x].getAttribute('object')
+                                "name": objectArray[x].getAttribute('object'),
+                                "ID": objectArray[x].getAttribute('ID'),
+                                "color": "green"
                             });
                         }
 
 
                         for (let z = 0; z < specificationArray.length; z++) {
 
-                            myJson["children"][i]["children"][x].children.push({"name": specificationArray[z].getAttribute('specificatie')});
-
+                            myJson["children"][i]["children"][x].children.push({
+                                "name": specificationArray[z].getAttribute('specificatie'),
+                                "ID": specificationArray[z].getAttribute('ID'),
+                                "color": "steelblue",
+                            });
 
                         }
 
@@ -271,7 +289,6 @@ export class AppComponent {
         console.log('ngOnInit');
         let x = this.transformData();
         x.then((data) => {
-                this.title = JSON.stringify((data));
                 this.showGraph(data);
             }
         );
