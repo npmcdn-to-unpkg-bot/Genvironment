@@ -21,7 +21,7 @@ export class AppComponent {
 
         let margin = {top: 0, right: 120, bottom: 0, left: 150},
             width = 1000 - margin.right - margin.left,
-            height = 800 - margin.top - margin.bottom;
+            height = 600 - margin.top - margin.bottom;
 
 
         let i = 0,
@@ -40,6 +40,7 @@ export class AppComponent {
         let svg = d3.select("#graph").append("svg")
             .attr("width", width + margin.right + margin.left)
             .attr("height", height + margin.top + margin.bottom)
+            .attr("class","myGraphTwo")
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 

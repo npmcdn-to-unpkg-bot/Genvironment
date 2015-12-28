@@ -24,7 +24,7 @@ body, html {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
 
 }
@@ -60,7 +60,7 @@ $color_strength: #e41f13;
 }
 
 .container {
-  height: 100vmin;
+  height: 100vh;
   flex-direction: column;
 }
 
@@ -107,12 +107,13 @@ main {
 
 main {
   flex-direction: column;
-  flex: 1;
+  flex: 1 1;
   padding: 8px;
 }
 
 .main-container {
   flex-direction: column;
+  flex: 1;
 
 }
 
@@ -197,23 +198,27 @@ label {
 
 }
 
-
-.main-container {
-  flex: 1;
-
-}
-
 my-app {
+
   margin: 0 auto;
-  padding: 20px;
+  padding: 3px;
   margin-bottom: 5px;
+
+
 
 }
 
 #graph {
-  border-top: 1px rgba($color_know_how, 0.3) solid;
-  border-bottom: 1px rgba($color_know_how, 0.3) solid;
+
   margin: 0 auto;
 
 }
 
+.myGraphTwo {
+     border-top: 1px rgba($color_know_how, 0.3) solid;
+    border-bottom: 1px rgba($color_know_how, 0.3) solid;
+}
+
+.legend {
+  margin-bottom: 20px;
+}
