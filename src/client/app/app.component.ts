@@ -1,10 +1,9 @@
-import {Component, OnInit} from 'angular2/core';
-import {RelaticsService} from './relatics.service'
-import {error} from "util";
+import {Component, OnInit} from "angular2/core";
+import {RelaticsService} from "./relatics.service";
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app/main.html',
+    selector: "my-app",
+    templateUrl: "app/main.html",
     providers: [RelaticsService]
 })
 
@@ -12,17 +11,17 @@ export class AppComponent {
 
     public graphData = {};
 
-    constructor(private _RelaticsService:RelaticsService) {
+    constructor(private _RelaticsService: RelaticsService) {
 
     }
 
-    showGraph(treeData):void {
+    showGraph(treeData:Object): void {
 
         //TODO typescrypt annotations => for each function.
 
         let margin = {top: 0, right: 120, bottom: 0, left: 150},
             width = 1000 - margin.right - margin.left,
-            height = 800- margin.top - margin.bottom;
+            height = 800 - margin.top - margin.bottom;
 
 
         let i = 0,
@@ -87,16 +86,12 @@ export class AppComponent {
 
             // declare the node variables
             let node = svg.selectAll("g.node")
-                .data(nodes, function (d) {
-                    return d.id || (d.id = ++i);
-                });
+                .data(nodes, (d) => d.id || (d.id = ++i));
 
             // enter the node
             let nodeEnter = node.enter().append("g")
                 .attr("class", "node")
-                .attr("transform", function (d) {
-                    return "translate(" + source.y0 + "," + source.x0 + ")";
-                });
+                .attr("transform", (d) => "translate(" + source.y0 + "," + source.x0 + ")");
 
 
             // Enter any new nodes at the parent's previous position.
@@ -105,7 +100,8 @@ export class AppComponent {
 
 
             let nodeEnterA = nodeEnter.append("a")
-                .attr("xlink:href", (d) => "https://arcadis.relaticsonline.com/37035202-abf8-4822-b8a5-b492c97a4c83/ShowObject.aspx?Key=" + d.ID)
+                .attr("xlink:href", (d) =>
+                "https://arcadis.relaticsonline.com/37035202-abf8-4822-b8a5-b492c97a4c83/ShowObject.aspx?Key=" + d.ID)
                 .attr("target", "_blank");
 
             nodeEnterA.append("text")
@@ -128,7 +124,7 @@ export class AppComponent {
 
             nodeUpdate.select("circle")
                 .attr("r", 10)
-                .attr("stroke", (d)=> d.color)
+                .attr("stroke", (d) => d.color)
                 .style("fill", (d) => d._children ? tinycolor(d.color).brighten(12).toString() : "#fff");
 
             nodeUpdate.select("text")
@@ -190,23 +186,21 @@ export class AppComponent {
 
     }
 
-    transformData():Promise<string> {
+    transformData(): Promise<string> {
 
-        let myJson = {};
+        let myJson: any = {};
 
-        return this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
-            .then(function (data) {
-
-
+        return this._RelaticsService.GetData("persons", "37035202-abf8-4822-b8a5-b492c97a4c83", "123456")
+            .then(function (data: HTMLDocument) {
 
                 // alle doelen
-                let goal = data.getElementsByTagName('doel')[0];
+                let goal = data.getElementsByTagName("doel")[0];
 
                 // initial myJson data
-                myJson["name"] = goal.getAttribute('doel');
-                myJson["ID"] = goal.getAttribute('ID');
-                myJson["children"] = [];
-                myJson["color"] = "purple";
+                myJson.name = goal.getAttribute("doel");
+                myJson.ID = goal.getAttribute("ID");
+                myJson.children = [];
+                myJson.color = "purple";
 
 
                 //alle functies
@@ -220,7 +214,7 @@ export class AppComponent {
 
                     if (functionArray[i].querySelectorAll('object').length > 0) {
 
-                        (<any>myJson).children.push({
+                        myJson.children.push({
                             "name": functionArray[i].getAttribute('functie'),
                             "ID": functionArray[i].getAttribute('ID'),
                             "color": "goldenrod",
@@ -229,7 +223,7 @@ export class AppComponent {
 
 
                     } else {
-                        (<any>myJson).children.push({
+                        myJson.children.push({
                             "name": functionArray[i].getAttribute('functie'),
                             "ID": functionArray[i].getAttribute('ID'),
                             "color": "goldenrod"
@@ -246,7 +240,7 @@ export class AppComponent {
 
                         if (objectArray[x].querySelectorAll('specificatie').length > 0) {
 
-                            myJson["children"][i].children.push({
+                            myJson.children[i].children.push({
                                 "name": objectArray[x].getAttribute('object'),
                                 "ID": objectArray[x].getAttribute('ID'),
                                 "color": "green",
@@ -254,7 +248,7 @@ export class AppComponent {
                             });
 
                         } else {
-                            myJson["children"][i].children.push({
+                            myJson.children[i].children.push({
                                 "name": objectArray[x].getAttribute('object'),
                                 "ID": objectArray[x].getAttribute('ID'),
                                 "color": "green"
@@ -264,7 +258,7 @@ export class AppComponent {
 
                         for (let z = 0; z < specificationArray.length; z++) {
 
-                            myJson["children"][i]["children"][x].children.push({
+                            myJson.children[i].children[x].children.push({
                                 "name": specificationArray[z].getAttribute('specificatie'),
                                 "ID": specificationArray[z].getAttribute('ID'),
                                 "color": "steelblue",
@@ -286,7 +280,6 @@ export class AppComponent {
 
 
     ngOnInit() {
-        console.log('ngOnInit');
         let x = this.transformData();
         x.then((data) => {
                 this.showGraph(data);

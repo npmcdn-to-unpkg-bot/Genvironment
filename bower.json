@@ -12,5 +12,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "d3": "~3.5.12"
+  }
 }

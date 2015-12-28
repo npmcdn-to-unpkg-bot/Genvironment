@@ -173,7 +173,6 @@ label {
 
 ===========================*/
 
-
 .node {
 
   cursor: pointer;
@@ -194,13 +193,27 @@ label {
 .link {
   fill: none;
   stroke: #ccc;
-  stroke-width: 2px;
+  stroke-width: 1px;
 
 }
 
-
-/* TESTING */
 
 .main-container {
   flex: 1;
+
 }
+
+my-app {
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 5px;
+
+}
+
+#graph {
+  border-top: 1px rgba($color_know_how, 0.3) solid;
+  border-bottom: 1px rgba($color_know_how, 0.3) solid;
+  margin: 0 auto;
+
+}
+
