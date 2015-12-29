@@ -1,32 +1,28 @@
 import {Component, OnInit} from "angular2/core";
 import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from "angular2/router";
 import {RelaticsService} from "./relatics.service";
-import {RouteParams} from "angular2/router"
+
 
 @Component({
     selector: "my-app",
     templateUrl: "app/main.html",
-    providers: [RelaticsService],
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES],
+    providers: [RelaticsService]
 })
 
 @RouteConfig([
- {path: '/:id', component: AppComponent}
+    {path: '/user/:id', component: UserCmp, as: 'UserCmp'},
 ])
-
 
 export class AppComponent {
 
     public graphData = {};
-    id: string;
 
-    constructor(private _RelaticsService: RelaticsService, private params: RouteParams) {
-
-        this.id = params.get("id")
+    constructor(private _RelaticsService:RelaticsService) {
 
     }
 
-    showGraph(treeData:Object): void {
+    showGraph(treeData:Object):void {
 
         //TODO typescrypt annotations => for each function.
 
@@ -51,7 +47,7 @@ export class AppComponent {
         let svg = d3.select("#graph").append("svg")
             .attr("width", width + margin.right + margin.left)
             .attr("height", height + margin.top + margin.bottom)
-            .attr("class","myGraphTwo")
+            .attr("class", "myGraphTwo")
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -198,12 +194,12 @@ export class AppComponent {
 
     }
 
-    transformData(): Promise<string> {
+    transformData():Promise<string> {
 
-        let myJson: any = {};
+        let myJson:any = {};
 
         return this._RelaticsService.GetData("persons", "37035202-abf8-4822-b8a5-b492c97a4c83", "123456")
-            .then(function (data: HTMLDocument) {
+            .then(function (data:HTMLDocument) {
 
                 // alle doelen
                 let goal = data.getElementsByTagName("doel")[0];
@@ -303,4 +299,18 @@ export class AppComponent {
 
 
 }
+
+@Component({
+    selector: 'about',
+    template: 'user: {{id}}'
+})
+export class UserCmp {
+    id:string;
+
+    constructor(params:RouteParams) {
+        this.id = params.get('id');
+        console.log(this.id);
+    }
+}
+
 
