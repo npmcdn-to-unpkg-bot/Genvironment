@@ -1,7 +1,7 @@
 import {Component, OnInit} from "angular2/core";
 import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from "angular2/router";
 import {RelaticsService} from "./relatics.service";
-import {RouteParams} from "angular2/router";
+import {RouteParams} from "angular2/router"
 
 @Component({
     selector: "my-app",
@@ -11,16 +11,16 @@ import {RouteParams} from "angular2/router";
 })
 
 @RouteConfig([
- {path: '/user/:id', component: AppComponent},
+ {path: '/:id', component: AppComponent}
 ])
 
 
 export class AppComponent {
 
     public graphData = {};
-    public id:string;
+    id: string;
 
-    constructor(private _RelaticsService: RelaticsService, params: RouteParams) {
+    constructor(private _RelaticsService: RelaticsService, private params: RouteParams) {
 
         this.id = params.get("id")
 

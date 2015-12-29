@@ -3,4 +3,4 @@ import {AppComponent} from './app.component'
 import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from 'angular2/router';
 
 
-bootstrap(AppComponent, ROUTER_PROVIDERS);
+bootstrap(AppComponent, [ROUTER_PROVIDERS]);
