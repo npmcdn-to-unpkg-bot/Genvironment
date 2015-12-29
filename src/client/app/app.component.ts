@@ -1,11 +1,13 @@
 import {Component, OnInit} from "angular2/core";
+import {ObjectTree} from "./object-tree.directive";
 import {RelaticsService} from "./relatics.service";
-import {RouteParams} from "angular2/router";
+
 
 @Component({
     selector: "my-app",
     templateUrl: "app/main.html",
-    providers: [RelaticsService]
+    providers: [RelaticsService],
+    directives: [ObjectTree]
 })
 
 
@@ -15,8 +17,6 @@ export class AppComponent {
 
 
     constructor(private _RelaticsService:RelaticsService) {
-
-
 
 
     }
@@ -172,7 +172,7 @@ export class AppComponent {
                 .remove();
 
             // Stash the old positions for transition.
-            nodes.forEach(function (d) {
+            nodes.forEach(function (d: any) {
                 d.x0 = d.x;
                 d.y0 = d.y;
             });
