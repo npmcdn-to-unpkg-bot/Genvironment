@@ -1,30 +1,27 @@
 import {Component, OnInit} from "angular2/core";
-import {Router, ROUTER_DIRECTIVES, ROUTER_PROVIDERS, RouteConfig} from "angular2/router";
 import {RelaticsService} from "./relatics.service";
-
+import {RouteParams} from "angular2/router";
 
 @Component({
     selector: "my-app",
     templateUrl: "app/main.html",
-    directives: [ROUTER_DIRECTIVES],
     providers: [RelaticsService]
 })
 
-@RouteConfig([
-    {path: '/user/:id', component: UserCmp, as: 'UserCmp'},
-])
 
 export class AppComponent {
 
     public graphData = {};
 
+
     constructor(private _RelaticsService:RelaticsService) {
+
+
+
 
     }
 
     showGraph(treeData:Object):void {
-
-        //TODO typescrypt annotations => for each function.
 
         let margin = {top: 0, right: 120, bottom: 0, left: 150},
             width = 1000 - margin.right - margin.left,
@@ -113,13 +110,9 @@ export class AppComponent {
                 .attr("target", "_blank");
 
             nodeEnterA.append("text")
-                .attr("x", function (d) {
-                    return d.children || d._children ? -13 : 13;
-                })
+                .attr("x", (d) => d.children || d._children ? -13 : 13)
                 .attr("dy", ".35em")
-                .attr("text-anchor", function (d) {
-                    return d.children || d._children ? "end" : "start";
-                })
+                .attr("text-anchor", (d) => d.children || d._children ? "end" : "start")
                 .text((d) => d.name)
                 .style("fill-opacity", 1e-6);
 
@@ -142,9 +135,7 @@ export class AppComponent {
 
             let nodeExit = node.exit().transition()
                 .duration(duration)
-                .attr("transform", function (d) {
-                    return "translate(" + source.y + "," + source.x + ")";
-                })
+                .attr("transform", (d) =>"translate(" + source.y + "," + source.x + ")")
                 .remove();
 
             nodeExit.select("circle")
@@ -156,9 +147,7 @@ export class AppComponent {
 
             // Update the links…
             let link = svg.selectAll("path.link")
-                .data(links, function (d) {
-                    return d.target.id;
-                });
+                .data(links, (d) => d.target.id);
 
             // Enter any new links at the parent's previous position.
             link.enter().insert("path", "g")
@@ -299,18 +288,3 @@ export class AppComponent {
 
 
 }
-
-@Component({
-    selector: 'about',
-    template: 'user: {{id}}'
-})
-export class UserCmp {
-    id:string;
-
-    constructor(params:RouteParams) {
-        this.id = params.get('id');
-        console.log(this.id);
-    }
-}
-
-
