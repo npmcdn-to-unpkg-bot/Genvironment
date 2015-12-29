@@ -99,7 +99,7 @@ main {
 #author {
   font-size: 0.75em;
   color: $color_know_how;
-  margin: auto 30px auto auto;
+  margin: auto;
 
 }
 
@@ -205,10 +205,9 @@ my-app {
 
 }
 
-
 .myGraphTwo {
-     border-top: 1px rgba($color_know_how, 0.3) solid;
-    border-bottom: 1px rgba($color_know_how, 0.3) solid;
+  border-top: 1px rgba($color_know_how, 0.3) solid;
+  border-bottom: 1px rgba($color_know_how, 0.3) solid;
 }
 
 .legend {
@@ -216,5 +215,5 @@ my-app {
 }
 
 #graph {
-  margin: auto;
+  margin: 0 auto;
 }
