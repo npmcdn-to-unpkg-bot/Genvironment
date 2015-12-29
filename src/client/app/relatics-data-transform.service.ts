@@ -2,7 +2,6 @@ import {Injectable} from 'angular2/core';
 
 
 @Injectable()
-
 export class RelaticsDataTransformService {
 
     //Transform relatics in object format
@@ -87,7 +86,7 @@ export class RelaticsDataTransformService {
 
         }
 
-        return myJson;
+        return Promise.resolve(myJson)
 
 
     }
