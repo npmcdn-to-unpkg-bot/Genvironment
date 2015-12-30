@@ -8,7 +8,7 @@ import {Inject} from "angular2/core";
 
 
 export class ObjectTreeDirective implements OnInit {
-
+    // attribute input in the html
     @Input('myGraphData') treeData;
 
     public divs:any;

@@ -25,8 +25,9 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
 
-        let x = this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456');
-        this.graphData = this._RelaticsDataTransformService.ObjectTreeTransformation(x);
+        // On intializing of component data from relatics db.
+        let relaticsData = this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456');
+        this.graphData = this._RelaticsDataTransformService.ObjectTreeTransformation(relaticsData);
 
     }
 
