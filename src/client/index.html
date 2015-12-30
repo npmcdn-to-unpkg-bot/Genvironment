@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Development of flexbox tool.</title>
+    <title>My Playground</title>
+
     <link rel="stylesheet" href="styles/styles.css">
+
+
+    <!-- Import js modules-->
     <script src="../../node_modules/angular2/bundles/angular2-polyfills.js"></script>
     <script src="../../node_modules/systemjs/dist/system.src.js"></script>
     <script src="../../node_modules/rxjs/bundles/Rx.js"></script>
@@ -12,7 +16,7 @@
     <script src="../../node_modules/angular2/bundles/router.dev.js"></script>
     <script src="../../node_modules/d3/d3.js"></script>
 
-    <!-- 2. Configure SystemJS -->
+    <!-- Configure SystemJS -->
 
     <script>
         System.config({
@@ -39,43 +43,7 @@
 
     <nav>
 
-        <svg width="50px" version="1.1" id="header_logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 413.6 379.5" style="enable-background:new 0 0 413.6 379.5;" xml:space="preserve">
-<style type="text/css">
-	.st12 {
-        fill: none;
-    }
-
-    .st13 {
-        fill: #E36110;
-    }
-</style>
-<g>
-	<g>
-		<path class="st12" d="M214.5,391.7c-65.3,0-130.7,0-196,0.1c-3.6,0-4-0.9-4-4.2c0.1-130.7,0.1-261.3,0-392c0-3.6,0.9-4,4.2-4
-			c130.7,0.1,261.3,0.1,392,0c3.6,0,4,0.9,4,4.2c-0.1,130.7-0.1,261.3,0,392c0,3.6-0.9,4-4.2,4C345.2,391.7,279.8,391.7,214.5,391.7
-			z M40.6,366.9c0.9-0.8,1.6-1.2,2.1-1.8c34.2-34,74.5-58.5,119.3-75.6c27.3-10.4,55.6-17.1,84.7-19.7c16.2-1.4,32.5-2.4,48.7,0.7
-			c34.2,6.5,59.9,35.8,62.3,70.7c0.5,7.8-0.7,15.4-1.3,23.1c1.6-0.1,1.8-1.2,2.4-1.9c12-15.9,21.9-33,30-51.1
-			C410,263.8,417.2,215,403.6,164c-7.8-29.1-21.6-54.2-47.3-71.1c-45.3-29.7-92.8-31-140.9-7.9c-19.8,9.5-32.1,25.8-35.2,48.4
-			c-3.6,26,14.6,45.8,40.7,43.4c15.5-1.4,30.4-5.9,44.4-12.6c9-4.3,17.7-9.3,26.6-13.8c3.3-1.7,7.1-2.9,10.2,0.4
-			c3.1,3.4,1.8,7.2,0,10.7c-2.6,4.9-6.2,9.1-10.7,12.4c-38.3,28.3-81.1,41.5-128.8,36.6c-14-1.4-27.1-6.2-37.2-16.6
-			c-16.6-17.2-19.1-37.8-12.3-59.8c6.3-20.3,19.5-35.8,35.8-48.8c29.5-23.6,63.9-35.1,100.9-39.2c42.2-4.7,81,4.3,115.8,29.2
-			c0.6,0.5,1.1,2,2.3,0.7c0.9-1,0.4-1.8-0.2-2.6c-2.9-3.6-5.7-7.4-8.9-10.8c-26.1-27.9-59.3-41.1-96.5-44.8
-			c-39.3-3.9-77.7,0.9-115.2,13c-40.4,13.1-73.6,36.1-96.6,72.5c-21.8,34.5-30,72.9-31.8,113c-1.7,38.6,3.1,76.7,11.7,114.3
-			C33.3,342.7,36.4,354.8,40.6,366.9z"/>
-		<path class="st13" d="M40.6,366.9c-4.3-12.1-7.3-24.2-10.1-36.3c-8.7-37.6-13.4-75.7-11.7-114.3c1.7-40.1,10-78.5,31.8-113
-			c23-36.4,56.2-59.4,96.6-72.5c37.5-12.1,76-16.9,115.2-13c37.2,3.7,70.4,16.9,96.5,44.8c3.2,3.4,5.9,7.2,8.9,10.8
-			c0.7,0.8,1.1,1.7,0.2,2.6c-1.2,1.3-1.7-0.3-2.3-0.7c-34.8-24.9-73.6-34-115.8-29.2c-37,4.2-71.4,15.6-100.9,39.2
-			c-16.3,13-29.5,28.6-35.8,48.8c-6.8,22-4.3,42.6,12.3,59.8c10,10.4,23.2,15.2,37.2,16.6c47.7,4.9,90.4-8.3,128.8-36.6
-			c4.5-3.3,8.1-7.5,10.7-12.4c1.8-3.5,3.1-7.3,0-10.7c-3.1-3.3-6.8-2.1-10.2-0.4c-8.9,4.5-17.6,9.5-26.6,13.8
-			c-14.1,6.7-28.9,11.2-44.4,12.6c-26.1,2.4-44.3-17.4-40.7-43.4c3.1-22.6,15.4-38.9,35.2-48.4c48.1-23.1,95.6-21.8,140.9,7.9
-			c25.7,16.9,39.5,41.9,47.3,71.1c13.6,51,6.4,99.8-14.7,147.3c-8.1,18.2-18,35.3-30,51.1c-0.6,0.7-0.8,1.9-2.4,1.9
-			c0.6-7.7,1.8-15.3,1.3-23.1c-2.4-34.9-28.1-64.2-62.3-70.7c-16.2-3.1-32.5-2.1-48.7-0.7c-29.1,2.6-57.4,9.2-84.7,19.7
-			c-44.9,17.1-85.1,41.7-119.3,75.6C42.2,365.7,41.5,366.1,40.6,366.9z"/>
-	</g>
-</g>
-</svg>
-
+        <img src="images/arcadis-logo.svg" alt="">
         <div id="header-text">SEm Tree Environment</div>
 
 
@@ -91,55 +59,10 @@
 
                 <div class="legend"><h2>Legenda</h2>
 
+                    <img src="images/legend.svg" alt="">
 
-                    <svg id="legend1" width="230px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        	 viewBox="0 0 270 56" style="enable-background:new 0 0 270 56;" xml:space="preserve">
-        <style type="text/css">
-        	.st0 {
-                fill: none;
-                stroke: #E6E7E8;
-                stroke-width: 2;
-                stroke-miterlimit: 10;
-            }
 
-            .st1 {
-                fill: #FFFFFF;
-                stroke: #8C0052;
-                stroke-width: 3;
-                stroke-miterlimit: 10;
-            }
 
-            .st2 {
-                fill: #FFFFFF;
-                stroke: #DCAB38;
-                stroke-width: 3;
-                stroke-miterlimit: 10;
-            }
-
-            .st3 {
-                fill: #FFFFFF;
-                stroke: #006838;
-                stroke-width: 3;
-                stroke-miterlimit: 10;
-            }
-
-            .st4 {
-                fill: #FFFFFF;
-                stroke: #4A79A3;
-                stroke-width: 3;
-                stroke-miterlimit: 10;
-            }
-        </style>
-        <line class="st0" x1="24.4" y1="35.4" x2="252.1" y2="35.4"/>
-        <circle class="st1" cx="18.4" cy="35.4" r="11"/>
-        <circle class="st2" cx="99.4" cy="35.4" r="11"/>
-        <circle class="st3" cx="175.9" cy="35.4" r="11"/>
-        <circle class="st4" cx="252.3" cy="35.4" r="11"/>
-        <text transform="matrix(1 0 0 1 6.0679 14.5417)" class="st5 st6">doel</text>
-        <text transform="matrix(1 0 0 1 81.4998 14.5417)" class="st5 st6">functie</text>
-        <text transform="matrix(1 0 0 1 160.2163 14.5417)" class="st5 st6">object</text>
-        <text transform="matrix(1 0 0 1 244.5704 14.5417)" class="st5 st6">eis</text>
-        </svg>
                 </div>
             </div>
 
