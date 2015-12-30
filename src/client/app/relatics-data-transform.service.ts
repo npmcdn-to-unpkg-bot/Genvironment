@@ -5,7 +5,7 @@ import {Injectable} from 'angular2/core';
 export class RelaticsDataTransformService {
 
     //Transform relatics in object format
-    ObjectTreeTransformation(data:HTMLDocument):Promise<string> {
+    ObjectTreeTransformation(data:HTMLDocument) {
 
         let myJson:any = {};
 
@@ -86,7 +86,7 @@ export class RelaticsDataTransformService {
 
         }
 
-        return Promise.resolve(myJson)
+        return myJson
 
 
     }

@@ -16,6 +16,7 @@ export class ObjectTree {
 
         let el:any = elementRef.nativeElement;
         this.divs = d3.select(el);
+        render()
     }
 
     render(treeData:any) {
