@@ -1,23 +1,17 @@
-import {Component, Directive, Attribute, ElementRef} from "angular2/core";
+import {Component, Directive, Attribute, ElementRef, Input, OnInit} from "angular2/core";
 import {Inject} from "angular2/core";
 
 
 @Directive({
-    selector: 'tree-graph',
-    properties: ['data']
+    selector: '[myGraphData]',
 })
 
-export class ObjectTree {
 
-    public data:any;
+export class ObjectTreeDirective implements OnInit {
+
+    @Input('myGraphData') treeData;
+
     public divs:any;
-
-    constructor(elementRef:ElementRef) {
-
-        let el:any = elementRef.nativeElement;
-        this.divs = d3.select(el);
-        render()
-    }
 
     render(treeData:any) {
 
@@ -177,6 +171,20 @@ export class ObjectTree {
 
         }
     }
+
+    constructor(elementRef:ElementRef) {
+
+        let el:any = elementRef.nativeElement;
+
+        this.divs = d3.select(el);
+
+    }
+
+    ngOnInit() {
+        this.render(this.treeData);
+  }
+
+
 
 
 }

@@ -86,15 +86,32 @@ main {
 
 }
 
+
+/* HEADER */
+
+nav {
+  justify-content: center;
+  align-items: center;
+
+
+
+}
+
 #header-logo {
+
 
 }
 
 #header-text {
-  margin: auto;
+  margin-left: 30px;
+
+
   font-size: 2em;
   color: $color_know_how;
 }
+
+
+/* FOOTER*/
 
 #author {
   font-size: 0.75em;
@@ -212,8 +229,10 @@ my-app {
 
 .legend {
   margin-bottom: 20px;
+
 }
 
 #graph {
   margin: 0 auto;
+  align-self: flex-end;
 }
