@@ -1,4 +1,4 @@
-import {Component, Directive, Attribute, ElementRef, Input, OnInit} from "angular2/core";
+import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "angular2/core";
 import {Inject} from "angular2/core";
 
 
@@ -180,8 +180,8 @@ export class ObjectTreeDirective implements OnInit {
 
     }
 
-    ngOnInit() {
-        this.render(this.treeData);
+    ngOnChanges() {
+        //this.render(this.treeData);
   }
 
 

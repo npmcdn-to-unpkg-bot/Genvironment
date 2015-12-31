@@ -14,7 +14,7 @@ import {RelaticsDataTransformService} from "./relatics-data-transform.service";
 
 export class AppComponent implements OnInit {
 
-    public graphData;
+    graphData:any;
 
 
     constructor(public _RelaticsService:RelaticsService, public _RelaticsDataTransformService:RelaticsDataTransformService) {
@@ -22,12 +22,20 @@ export class AppComponent implements OnInit {
 
     }
 
-
     ngOnInit() {
 
-        // On intializing of component data from relatics db.
-        let relaticsData = this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456');
-        this.graphData = this._RelaticsDataTransformService.ObjectTreeTransformation(relaticsData);
+        this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
+            .then((val) =>
+                this._RelaticsDataTransformService.ObjectTreeTransformation(val)
+            )
+            .then((val) => {
+                console.log(val); // logs object
+                this.graphData = val; // assigns object to this.graphdata
+                console.log(this.graphData); // logs object
+            })
+            .catch((err) => console.log("rejected:", err));
+
+        console.log(this.graphData) // logs undefined??
 
     }
 

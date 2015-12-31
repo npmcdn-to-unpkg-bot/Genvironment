@@ -6,7 +6,7 @@ import {Injectable} from 'angular2/core';
 export class RelaticsService {
 
 
-    GetData(operationName:string, workspaceId:string, entryCode:string):HTMLDocument {
+    GetData(operationName:string, workspaceId:string, entryCode:string):Promise {
 
         // xml Data for the SOAP request
         var xml = '<soap:Envelope ' + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
@@ -44,8 +44,16 @@ export class RelaticsService {
         let parser = new DOMParser();
         SoapResponse = parser.parseFromString(SoapRequest.responseText, 'text/xml');
 
-        return SoapResponse;
+        return new Promise<HTMLDocument>((resolve,reject) => {
+            if(!SoapResponse.getElementsByTagName('Export')[0]) {
+                resolve(SoapResponse)
 
+            }
+            else {
+                reject("webservice couldn't be reached or is wrongly defined")
+            }
+
+        });
     }
 
 
