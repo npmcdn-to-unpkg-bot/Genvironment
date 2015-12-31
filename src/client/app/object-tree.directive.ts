@@ -181,10 +181,10 @@ export class ObjectTreeDirective implements OnInit {
     }
 
     ngOnChanges() {
-        //this.render(this.treeData);
-  }
-
-
+        if (this.treeData) {
+            this.render(this.treeData);
+        }
+    }
 
 
 }

@@ -29,13 +29,11 @@ export class AppComponent implements OnInit {
                 this._RelaticsDataTransformService.ObjectTreeTransformation(val)
             )
             .then((val) => {
-                console.log(val); // logs object
                 this.graphData = val; // assigns object to this.graphdata
                 console.log(this.graphData); // logs object
             })
             .catch((err) => console.log("rejected:", err));
 
-        console.log(this.graphData) // logs undefined??
 
     }
 
