@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
                 this.graphData = val; // assigns object to this.graphdata
                 console.log(this.graphData); // logs object
             })
-            .catch((err) => console.log("rejected:", err));
+            .catch((err) => console.error("rejected:", err));
 
 
     }
