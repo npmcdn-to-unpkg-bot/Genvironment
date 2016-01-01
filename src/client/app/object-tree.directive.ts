@@ -7,7 +7,7 @@ import {Inject} from "angular2/core";
 })
 
 
-export class ObjectTreeDirective implements OnInit {
+export class ObjectTreeDirective implements OnChanges {
     // attribute input in the html
     @Input('myGraphData') treeData;
 
