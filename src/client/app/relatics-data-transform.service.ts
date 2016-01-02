@@ -1,4 +1,5 @@
 import {Injectable} from 'angular2/core';
+import {Goal} from './goal'
 
 
 @Injectable()
@@ -7,7 +8,7 @@ export class RelaticsDataTransformService {
     //Transform relatics in object format
     ObjectTreeTransformation(data:HTMLDocument) {
 
-        let myJson:any = {};
+        let myJson:Goal = {};
 
         // alle doelen
         let goal = data.getElementsByTagName("doel")[0];
