@@ -8,17 +8,17 @@ export class RelaticsDataTransformService {
     //Transform relatics in object format
     ObjectTreeTransformation(data:HTMLDocument) {
 
-        let myJson:Goal = {};
-
         // alle doelen
         let goal = data.getElementsByTagName("doel")[0];
 
-        // initial myJson data
-        myJson.name = goal.getAttribute("doel");
-        myJson.ID = goal.getAttribute("ID");
-        myJson.children = [];
-        myJson.color = "purple";
 
+        // initial myJson data
+        let myJson:Goal = {
+            'name': goal.getAttribute("doel"),
+            'ID': goal.getAttribute("ID"),
+            'children': [],
+            'color': "purple"
+        };
 
         //alle functies
         let functionArray = goal.querySelectorAll('functie');
