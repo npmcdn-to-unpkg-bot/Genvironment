@@ -1,11 +1,11 @@
 // Karma configuration
-// Generated on Fri Jan 01 2016 13:02:55 GMT+0100 (W. Europe Standard Time)
+// Generated on Fri Jan 01 2016 15:48:47 GMT+0100 (W. Europe Standard Time)
 
 module.exports = function (config) {
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
+        basePath: '.',
 
 
         // frameworks to use
@@ -15,13 +15,22 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            "src/**/*.js",
-            "tests/**/**/*.js"
+
+            //'./node_modules/jasmine-core/lib/jasmine-core.js',
+            //'./node_modules/angular2/bundles/angular2-polyfills.js',
+            './node_modules/systemjs/dist/system.src.js',
+            './node_modules/angular2/bundles/angular2.dev.js',
+            './node_modules/angular2/bundles/testing.dev.js',
+
+            './src/client/**/*.js',
+            './tests/*.js'
         ],
 
 
         // list of files to exclude
         exclude: [],
+
+        globalEvaluationScope: false,
 
 
         // preprocess matching files before serving them to the browser
