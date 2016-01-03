@@ -26,6 +26,10 @@ export class TreeMapDirective implements OnChanges {
 
     }
 
+    ngOnChanges() {
+
+    }
+
 
 
 
