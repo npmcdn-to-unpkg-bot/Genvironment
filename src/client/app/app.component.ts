@@ -2,7 +2,6 @@ import {Component, OnInit} from "angular2/core";
 import {ObjectTreeDirective} from "./object-tree.directive";
 import {RelaticsService} from "./relatics.service";
 import {RelaticsDataTransformService} from "./relatics-data-transform.service";
-import {DemoComponent} from "./demo.component"
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Router} from 'angular2/router';
 
@@ -12,12 +11,6 @@ import {Router} from 'angular2/router';
     providers: [RelaticsDataTransformService, RelaticsService],
     directives: [ROUTER_DIRECTIVES, ObjectTreeDirective]
 })
-
-
-@RouteConfig([
-    {path: '/demo/:id', name: 'Demo', component: DemoComponent}
-])
-
 
 export class AppComponent implements OnInit {
 
