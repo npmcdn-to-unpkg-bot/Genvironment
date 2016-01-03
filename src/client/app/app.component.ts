@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
             )
             .then((val) => {
                 this.graphData = val; // assigns object to this.graphdata
-                console.log(this.graphData); // logs object
             })
             .catch((err) => console.error("rejected:", err));
 
