@@ -3,6 +3,7 @@
  */
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var browserSync = require('browser-sync');
 var del = require('del');
 var config = require('./gulp.config')();
@@ -11,7 +12,7 @@ var $ = require('gulp-load-plugins')();
 
 gulp.task('styles', function () {
 
-    console.log('Compiling sass --> CSS');
+    gutil.log(gutil.colors.blue('Compiling SASS --> CSS'));
 
     return gulp
         .src(config.sass)
@@ -25,7 +26,7 @@ gulp.task('styles', function () {
 //gulp.task('scripts', function () {
 //    "use strict";
 //
-//    console.log('compiling js');
+//    gutil.log(gutil.colors.cyan('Compiling JS'));
 //
 //    return gulp
 //        .src(config.alljs)
@@ -36,6 +37,8 @@ gulp.task('styles', function () {
 //});
 
 gulp.task('serve', function () {
+
+    gutil.log(gutil.colors.green('Serving the browser'));
 
     browserSync({
         server: {
