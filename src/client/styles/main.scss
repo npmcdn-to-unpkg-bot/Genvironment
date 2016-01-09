@@ -1,0 +1,117 @@
+// Modules and Variables
+@import 'modules/colors';
+
+
+// Partials
+@import 'partials/typography';
+@import 'partials/buttons';
+
+
+// Project specific
+@import 'object-tree/base';
+
+
+/* =============================
+             GENERAL
+===============================*/
+
+
+* {
+  box-sizing: border-box;
+  font-family: Open-Sans, SansSerif, "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+
+  @extend html;
+
+  min-height: 100%;
+  flex-direction: column;
+
+}
+
+a {
+  color: $color_know_how;
+}
+
+/*===============================
+             CONTENT
+================================*/
+
+.container, body, nav, main, footer, col, .main-container {
+  display: flex;
+}
+
+.container {
+  height: 100vh;
+  flex-direction: column;
+}
+
+input, button {
+  display: block;
+}
+
+nav {
+  background: $color_collaboration;
+  height: 80px;
+  padding: 3px 20px;
+}
+
+footer {
+  background: $color_collaboration;
+  height: 40px;
+}
+
+main {
+
+  padding: 15px 10px;
+  flex: 1;
+
+}
+
+/*========================
+          HEADER
+==========================*/
+
+nav {
+  justify-content: center;
+  align-items: center;
+
+}
+
+#header-text {
+  margin-left: 30px;
+
+  font-size: 2em;
+  color: $color_know_how;
+}
+
+/* FOOTER*/
+
+#author {
+  font-size: 0.75em;
+  color: $color_know_how;
+  margin: auto;
+
+}
+
+/* MAIN container */
+
+main {
+  flex-direction: column;
+  flex: 1 1;
+  padding: 8px;
+}
+
+.main-container {
+  flex-direction: column;
+  flex: 1;
+
+}
+
+

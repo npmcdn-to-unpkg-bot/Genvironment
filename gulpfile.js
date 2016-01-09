@@ -16,9 +16,11 @@ gulp.task('styles', function () {
 
     return gulp
         .src(config.sass)
+        .pipe($.sourcemaps.init())
         .pipe($.sass())
         .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
         .pipe($.cssnano())
+        .pipe($.sourcemaps.write())
         .pipe(gulp.dest(config.css));
 });
 

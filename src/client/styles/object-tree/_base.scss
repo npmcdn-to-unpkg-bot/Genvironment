@@ -1,0 +1,49 @@
+/*=========================
+     Object tree
+===========================*/
+
+.node {
+
+  cursor: pointer;
+
+  circle {
+    fill: #fff;
+    stroke-width: 3px;
+  }
+
+  text {
+    font-size: 0.8em;
+    text-decoration: underline;
+    fill: steelblue;
+    font-weight: bolder;
+  }
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1px;
+
+}
+
+my-app {
+
+  margin: 0 auto;
+  padding: 4px;
+
+}
+
+.myGraphTwo {
+  border-top: 1px rgba($color_know_how, 0.3) solid;
+  border-bottom: 1px rgba($color_know_how, 0.3) solid;
+}
+
+.legend {
+  margin-bottom: 21px;
+
+}
+
+#graph {
+  margin: 0 auto;
+  align-self: flex-end;
+}

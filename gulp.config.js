@@ -18,7 +18,7 @@ module.exports = function () {
         ],
         js: build + 'app',
 
-        sass: client + 'styles/*.scss',
+        sass: [client + 'styles/*.scss',client + 'styles/**/*.scss'],
         css: client + 'styles'
 
 

@@ -1,0 +1,42 @@
+.btn {
+  border: none;
+  width: 216px;
+  height: 80px;
+  background: $color_integrity;
+  box-shadow: 0 4px 4px $color_collaboration;
+  font-size: 1.4em;
+  margin: auto;
+  transition: background 0.2s ease-in-out;
+  position: relative;
+
+  &:hover {
+
+    box-shadow: 0 5px 4px darken($color_collaboration, 0.6);
+    background: darken($color_integrity, 0.8);
+    cursor: pointer;
+    bottom: 2px;
+
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background: $color_know_how;
+  }
+
+}
+
+.generate {
+  background: rgba($color_know_how, 0.1);
+  padding: 15px;
+  width: 720px;
+  margin: auto;
+
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9em;
+}
