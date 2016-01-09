@@ -17,7 +17,7 @@ gulp.task('styles', function () {
         .src(config.sass)
         .pipe($.sass())
         .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
-        .pipe($.minifyCss())
+        .pipe($.cssnano())
         .pipe(gulp.dest(config.css));
 });
 
