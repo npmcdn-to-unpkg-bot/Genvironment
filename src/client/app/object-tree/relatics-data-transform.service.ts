@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from 'node_modules/angular2/core.d';
 import {Goal} from './goal'
 
 

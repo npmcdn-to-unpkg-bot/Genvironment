@@ -1,14 +1,14 @@
 import {Component, OnInit} from "angular2/core";
-import {ObjectTreeDirective} from "./object-tree.directive";
-import {RelaticsService} from "./relatics.service";
-import {RelaticsDataTransformService} from "./relatics-data-transform.service";
+import {ObjectTreeDirective} from "./object-tree/object-tree.directive.ts";
+import {RelaticsService} from "./relatics/relatics.service.ts";
+import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service.ts";
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Router} from 'angular2/router';
 import {TaskList} from './task-list/task-list.component'
 
 @Component({
     selector: "my-app",
-    templateUrl: "app/main.html",
+    templateUrl: "app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
     directives: [ROUTER_DIRECTIVES, ObjectTreeDirective, TaskList]
 })
