@@ -4,12 +4,13 @@ import {RelaticsService} from "./relatics.service";
 import {RelaticsDataTransformService} from "./relatics-data-transform.service";
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Router} from 'angular2/router';
+import {TaskList} from './task-list/task-list.component'
 
 @Component({
     selector: "my-app",
     templateUrl: "app/main.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ROUTER_DIRECTIVES, ObjectTreeDirective]
+    directives: [ROUTER_DIRECTIVES, ObjectTreeDirective, TaskList]
 })
 
 export class AppComponent implements OnInit {
