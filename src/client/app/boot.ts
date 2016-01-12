@@ -4,4 +4,4 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 import {UserInformation} from './index'
 
 
-bootstrap(UserInformation, [ROUTER_PROVIDERS,]);
+bootstrap(AppComponent, [ROUTER_PROVIDERS,]);
