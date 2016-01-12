@@ -3,6 +3,11 @@
     <div class="task-list__1-box-c">
         <div class="task-list__tasks">
 
+            <my-enter-task (taskEntered)="addTask($event)">
+
+
+            </my-enter-task>
+
             <my-task *ngFor="#task of tasks"
 
 
@@ -10,6 +15,8 @@
 
 
             </my-task>
+
+
         </div>
 
     </div>
