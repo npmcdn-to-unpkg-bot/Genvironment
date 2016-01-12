@@ -1,11 +1,11 @@
 import {Component} from 'angular2/core'
+import {Task} from './task/task.component'
 
 
 @Component({
     templateUrl:'app/task-list/task-list.html',
-    selector:'my-task-list'
-
-
+    selector:'my-task-list',
+    directives:[Task]
 
 })
 

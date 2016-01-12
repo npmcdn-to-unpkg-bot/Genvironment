@@ -3,13 +3,14 @@
     <div class="task-list__1-box-c">
         <div class="task-list__tasks">
 
-            <div *ngFor="#task of tasks" class="task">
+            <my-task *ngFor="#task of tasks"
 
 
+                     [taskData]="task">
 
-            </div>
 
-
+            </my-task>
         </div>
+
     </div>
 </div>
