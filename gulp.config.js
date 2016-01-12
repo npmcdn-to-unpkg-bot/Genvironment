@@ -9,7 +9,7 @@ module.exports = function () {
 
     var config = {
         temp: './tmp',
-
+        html:[client + '/**/*.html'],
         /* Files path */
         client: [client + '/*',client + '/**/*.js', !client + '/**/boot.js'],
         alljs: [

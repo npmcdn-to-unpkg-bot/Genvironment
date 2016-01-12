@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core.d';
+import {Injectable} from 'angular2/core';
 
 
 @Injectable()

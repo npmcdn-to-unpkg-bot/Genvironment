@@ -66,6 +66,7 @@ gulp.task('clean-styles', function () {
 gulp.task('watch', function () {
     gulp.watch(config.sass, ['styles', browserSync.reload]);
     gulp.watch(config.client, browserSync.reload);
+    gulp.watch(config.html, browserSync.reload);
     //gulp.watch(config.alljs, ['scripts']);
 
 });
