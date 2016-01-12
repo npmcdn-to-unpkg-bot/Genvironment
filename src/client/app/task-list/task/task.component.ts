@@ -4,3 +4,9 @@ import {Component, Input} from 'angular2/core'
     templateUrl: 'app/task-list/task/task.html',
     selector: 'my-task',
 })
+
+export class Task {
+    @Input() taskData;
+
+
+}
