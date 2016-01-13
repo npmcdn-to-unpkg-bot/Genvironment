@@ -1,12 +1,13 @@
 import {Component, Input} from 'angular2/core'
+import {Checkbox} from './../../ui/checkbox/checkbox.component'
 
 @Component({
     templateUrl: 'app/task-list/task/task.html',
     selector: 'my-task',
+    directives:[Checkbox]
 })
 
 export class Task {
     @Input() taskData;
-
 
 }

@@ -13,7 +13,7 @@ export class EditTask {
 
 
     enterTask(titleInput) {
-        this.taskEntered.next(titleInput.value);
+        this.taskEntered.emit(titleInput.value);
         console.log(titleInput.value);
         titleInput.value = '';
     }

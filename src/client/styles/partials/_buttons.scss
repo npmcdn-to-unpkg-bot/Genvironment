@@ -40,3 +40,33 @@ label {
   font-weight: bold;
   font-size: 0.9em;
 }
+
+.button {
+  border: none;
+  width: 140px;
+  height: 30px;
+  background: $color_integrity;
+  box-shadow: 0 1px 1px $color_collaboration;
+  font-size: 1em;
+  transition: background 0.2s ease-in-out;
+  position: relative;
+  margin-top: 10px;
+
+  &:hover {
+
+    box-shadow: 0 1px 1px darken($color_collaboration, 0.6);
+    background: darken($color_integrity, 0.8);
+    cursor: pointer;
+    bottom: 1px;
+
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background: $color_know_how;
+  }
+
+}

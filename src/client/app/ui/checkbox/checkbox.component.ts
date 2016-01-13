@@ -5,14 +5,14 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core'
     templateUrl: 'app/ui/checkbox/checkbox.html',
 })
 
-export default class Checkbox {
+export class Checkbox {
     @Input() label;
-    @input() checked;
+    @Input() checked;
 
-    @Output() checkedChange;
+    @Output() checkedChange = new EventEmitter();
 
     onCheckedChange(checked) {
-        this.checkedChange.next(checked)
+        this.checkedChange.emit(checked)
     }
 
 }
