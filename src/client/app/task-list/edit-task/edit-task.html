@@ -2,8 +2,8 @@
     <div class="enter-task__1-box-a">
 
 
-        <input type="text" class="enter-task__title-input" placeholder="New title."
-               #taskTitle></div>
+        <input type="text" class="enter-task__title-input" placeholder="New title"
+               #taskTitle (keyup.enter)="enterTask(taskTitle)"></div>
 
         <div class="enter-task__1-box-b">
             <button class="button" (click)="enterTask(taskTitle)">

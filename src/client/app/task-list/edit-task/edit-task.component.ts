@@ -8,17 +8,17 @@ import {Component, Output, EventEmitter} from 'angular2/core'
 
 export class EditTask {
 
-    @Output () taskEntered = new EventEmitter();
-
+    @Output() taskEntered = new EventEmitter();
 
 
     enterTask(titleInput) {
-        this.taskEntered.emit(titleInput.value);
-        console.log(titleInput.value);
-        titleInput.value = '';
+        if (titleInput.value) {
+            this.taskEntered.emit(titleInput.value);
+            console.log(titleInput.value);
+            titleInput.value = '';
+        }
+
     }
-
-
 
 
 }

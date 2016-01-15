@@ -1,31 +1,51 @@
+
+
+/*CHECK BOX*/
+input[type=checkbox] {
+  display: none;
+}
+
+.checkbox__label {
+
+  display: inline-block;
+  cursor: pointer;
+  line-height: 25px;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    background: #ffffff;
+    text-align: center;
+    color: #5ac226;
+    border: 2px solid #9b9b9b;
+  }
+
+}
+
+input[type=checkbox]:checked + .checkbox__label:before   {
+  content: "\2713";
+  font-size: 28px;
+}
+
+
+
+/*=========== END CHECKBOX =============*/
+
 .enter-task__1-container {
   margin-bottom: 20px;
 }
 
-
-.checkbox__label {
-  margin-top: 40px;
-  position: relative;
-
-}
-
-.checkbox__input {
-  cursor: pointer;
-  position: absolute;
-  right: -300px;
-  height: 28px;
-  width: 28px;
-
-}
 
 
 .task__1-box-b {
   padding: 5px;
   width: 300px;
   background: lightyellow;
-  border-bottom: solid  1px #dedede;
+  border-bottom: solid 1px #dedede;
 }
-
 
 .enter-task__title-input {
   font-size: 1em;
@@ -41,7 +61,9 @@
   }
 }
 
-input[type="checkbox"] + label {
-  display: none;
- 
+
+
+.app__l-container {
+  background: lightyellow;
+  padding: 25px;
 }

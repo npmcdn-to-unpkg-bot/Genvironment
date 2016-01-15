@@ -1,10 +1,13 @@
-<label class="checkbox__label">
 
-    <input type="checkbox" class="checkbox__input"
-           [checked]="checked"
-           (change)="onCheckedChange($event.target.checked)"
-    >
+
+<input type="checkbox" class="checkbox__input"
+       [checked]="checked"
+       (change)="onCheckedChange($event.target.checked)">
+
+<label class="checkbox__label">
 
     <span class="checkbox__text">{{ label }}</span>
 
 </label>
+
+
