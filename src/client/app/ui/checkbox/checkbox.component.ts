@@ -12,6 +12,7 @@ export class Checkbox {
     @Output() checkedChange = new EventEmitter();
 
     onCheckedChange(checked) {
+        console.log(checked);
         console.log(this.checkedChange.emit(checked));
         this.checkedChange.emit(checked)
     }
