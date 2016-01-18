@@ -25,6 +25,8 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
 
+        console.log(window.location.href.split('#'));
+
         this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
             .then((val) =>
                 this._RelaticsDataTransformService.ObjectTreeTransformation(val)

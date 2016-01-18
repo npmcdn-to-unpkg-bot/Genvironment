@@ -6,7 +6,7 @@ import {Injectable} from 'angular2/core';
 export class RelaticsService {
 
 
-    GetData(operationName:string, workspaceId:string, entryCode:string):Promise<HTMLDocument> {
+    GetData(operationName:string, workspaceId:string, entryCode:string, objectId?:string):Promise<HTMLDocument> {
 
         // xml Data for the SOAP request
         var xml = '<soap:Envelope ' + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
@@ -20,6 +20,14 @@ export class RelaticsService {
             '<Workspace>' + workspaceId + '</Workspace>' +
             '</Identification>' +
             '</Identification>' +
+            '<Parameters>' +
+            '<Parameters>' +
+            '<Parameter Name="parameter" ' +
+            'Value="' +
+            objectId
+            + '"/>' +
+            '</Parameters>' +
+            '</Parameters>' +
             '<Authentication>' +
             '<Authentication>' +
             '<Entrycode>' + entryCode + '</Entrycode>' +
@@ -44,8 +52,8 @@ export class RelaticsService {
         let parser = new DOMParser();
         SoapResponse = parser.parseFromString(SoapRequest.responseText, 'text/xml');
 
-        return new Promise<HTMLDocument>((resolve,reject) => {
-            if(!SoapResponse.getElementsByTagName('Export')[0]) {
+        return new Promise<HTMLDocument>((resolve, reject) => {
+            if (!SoapResponse.getElementsByTagName('Export')[0]) {
                 resolve(SoapResponse)
 
             }
