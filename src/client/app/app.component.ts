@@ -25,9 +25,16 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
 
-        console.log(window.location.href.split('#'));
+        // get URL parameters
+        let parameters:string[] = window.location.href.split('#');
+        let relaticsObject = {
+            "operationName": parameters[1],
+            "workspaceId": parameters[2],
+            "entryCode": parameters[3],
+            "objectId": parameters[4],
+        };
 
-        this._RelaticsService.GetData('persons', '37035202-abf8-4822-b8a5-b492c97a4c83', '123456')
+        this._RelaticsService.GetData(relaticsObject.operationName, relaticsObject.workspaceId, relaticsObject.entryCode, relaticsObject.objectId)
             .then((val) =>
                 this._RelaticsDataTransformService.ObjectTreeTransformation(val)
             )
