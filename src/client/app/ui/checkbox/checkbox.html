@@ -1,10 +1,10 @@
 
 
 <input type="checkbox" class="checkbox__input"
-       [checked]="checked"
-       (change)="onCheckedChange($event.target.checked)">
+       [checked]="checked" #konjo
+       >
 
-<label class="checkbox__label">
+<label class="checkbox__label" (click)="onCheckedChange(konjo.value)">
 
     <span class="checkbox__text">{{ label }}</span>
 
