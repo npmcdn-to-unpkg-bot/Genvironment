@@ -58,7 +58,7 @@ export class RelaticsService {
 
             }
             else {
-                reject("webservice couldn't be reached or is wrongly defined")
+                reject("webservice couldn't be reached or wrong parameters have been  ")
             }
 
         });

@@ -1,5 +1,5 @@
 .error {
   padding: 20px;
-  background: lighten(tomato, 30);
+  background: lighten($color_strength, 30);
   border-radius: 2px;
 }
