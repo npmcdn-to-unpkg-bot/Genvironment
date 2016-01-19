@@ -13,9 +13,9 @@ var $ = require('gulp-load-plugins')();
 gulp.task('index', function () {
   var target = gulp.src(config.build + 'index.html');
   // It's not necessary to read the files (will speed up things), we're only after their paths:
-  var sources = gulp.src([config.build + 'lib/*'], {read: false, base: config.build});
+  var sources = gulp.src([config.build + 'lib/*'], {read: false});
 
-  return target.pipe($.inject(sources))
+  return target.pipe($.inject(sources,{relative: true}))
     .pipe(gulp.dest(config.build));
 });
 
@@ -44,9 +44,7 @@ gulp.task('copy:assets', function () {
             config.client + '**/*',
             '!' + config.client + '**/*.ts',
             '!' + config.client + '**/*.scss',
-            '!' + config.styles + '**/*',
-            config.styles + '*.css'
-
+            '!' + config.css + '**/!(main.css)',
         ])
         .pipe(gulp.dest(config.build))
 })
