@@ -45,7 +45,7 @@ a {
              CONTENT
 ================================*/
 
-.container, body, nav, main, footer, col, .main-container {
+.container, body, nav, main, footer, col, .main-container, my-task {
   display: flex;
 }
 
@@ -123,4 +123,16 @@ my-app {
   margin: auto;
 }
 
+my-task {
+  margin-bottom: 5px;
+  justify-content: space-around;
+}
 
+.task__1-box-a {
+
+  flex: 2 1;
+
+}.task__1-box-b {
+  flex: 8 1;
+
+}
