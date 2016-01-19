@@ -1,17 +1,19 @@
 <!--<div class="app__l-container">-->
-    <!--<my-task-list>-->
+<!--<my-task-list>-->
 
 
-    <!--</my-task-list>-->
+<!--</my-task-list>-->
 <!--</div>-->
 
 
 <div [myGraphData]="graphData">
-    <div id="graph">
+
+
+    <div *ngIf="!webserviceError" id="graph">
 
         <div class="legend"><h2>Legenda</h2>
 
-            <svg width="230px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"	 viewBox="0 0 270 56" style="enable-background:new 0 0 270 56;" xml:space="preserve">
+            <svg width="230px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"  x="0px" y="0px"	 viewBox="0 0 270 56" style="enable-background:new 0 0 270 56;" xml:space="preserve">
         <style type="text/css">
         	.st0 {
                 fill: none;
@@ -62,6 +64,15 @@
 
         </div>
     </div>
+
+
+</div>
+
+<div *ngIf="webserviceError" class="error">
+
+   <i class="fa fa-exclamation fa-3x">  </i>    Couldn't reach the webservice
+
+
 </div>
 
 

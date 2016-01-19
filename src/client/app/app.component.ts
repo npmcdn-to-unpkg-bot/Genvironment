@@ -15,6 +15,7 @@ import {TaskList} from './task-list/task-list.component'
 
 export class AppComponent implements OnInit {
 
+    webserviceError:boolean;
     graphData:any;
 
 
@@ -34,6 +35,8 @@ export class AppComponent implements OnInit {
             "objectId": parameters[4],
         };
 
+        this.webserviceError = false;
+
         this._RelaticsService.GetData(relaticsObject.operationName, relaticsObject.workspaceId, relaticsObject.entryCode, relaticsObject.objectId)
             .then((val) =>
                 this._RelaticsDataTransformService.ObjectTreeTransformation(val)
@@ -41,10 +44,14 @@ export class AppComponent implements OnInit {
             .then((val) => {
                 this.graphData = val; // assigns object to this.graphdata
             })
-            .catch((err) => console.error("rejected:", err));
+            .catch((err) => {
+                this.webserviceError = true;
+                console.error("rejected:", err);   }
+                )
 
 
-    }
+
+}
 
 
 }
