@@ -1,5 +1,5 @@
 <div class="task__1-box-a">
-    <my-checkbox [checked]="taskData.done">KOJO</my-checkbox>
+    <my-checkbox [checked]="taskData.done"  (checkedChange)="test($event)">KOJO</my-checkbox>
 </div>
 
 <div class="task__1-box-b">

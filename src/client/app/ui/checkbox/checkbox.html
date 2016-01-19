@@ -1,8 +1,7 @@
 <input type="checkbox" class="checkbox__input"
-       [checked]="checked" #konjo (change)="onCheckedChange(konjo.checked)"
+       [ngModel]="checked" #konjo
 >
-
-<label class="checkbox__label" >
+<label class="checkbox__label" (click)="onCheckedChange(konjo.checked)">
 
     <span class="checkbox__text">{{ label }}</span>
 
