@@ -5,18 +5,19 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var browserSync = require('browser-sync');
+var runSequence = require('run-sequence');
 var del = require('del');
 var config = require('./gulp.config')();
 var $ = require('gulp-load-plugins')();
 
 
 gulp.task('index', function () {
-  var target = gulp.src(config.build + 'index.html');
-  // It's not necessary to read the files (will speed up things), we're only after their paths:
-  var sources = gulp.src([config.build + 'lib/*'], {read: false});
+    var target = gulp.src(config.build + 'index.html');
+    // It's not necessary to read the files (will speed up things), we're only after their paths:
+    var sources = gulp.src([config.build + 'lib/*'], {read: false});
 
-  return target.pipe($.inject(sources,{relative: true}))
-    .pipe(gulp.dest(config.build));
+    return target.pipe($.inject(sources, {relative: true}))
+        .pipe(gulp.dest(config.build));
 });
 
 
@@ -112,4 +113,13 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', ['styles', 'serve', 'watch']);
-gulp.task('build', ['clean', 'copy:libs', 'copy:assets','index'])
+gulp.task('build', function (callback) {
+
+        runSequence(
+            'clean',
+            ['copy:libs', 'copy:assets'],
+            'index',
+            callback
+        );
+    }
+);
