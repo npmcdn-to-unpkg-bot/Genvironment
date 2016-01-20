@@ -6,6 +6,7 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
+var series = require('stream-series');
 var del = require('del');
 var config = require('./gulp.config')();
 var $ = require('gulp-load-plugins')();
@@ -14,9 +15,14 @@ var $ = require('gulp-load-plugins')();
 gulp.task('index', function () {
     var target = gulp.src(config.build + 'index.html');
     // It's not necessary to read the files (will speed up things), we're only after their paths:
-    var sources = gulp.src([config.build + 'lib/*'], {read: false});
 
-    return target.pipe($.inject(sources, {relative: true}))
+    var systemJsFile = 'system.src.js';
+
+    var primarySource = gulp.src(config.build + 'lib/' + systemJsFile, {read: false});
+
+    var sources = gulp.src([config.build + 'lib/*', '!' + config.build + 'lib/' + systemJsFile], {read: false});
+
+    return target.pipe($.inject(series(primarySource, sources),{relative: true}))
         .pipe(gulp.dest(config.build));
 });
 
