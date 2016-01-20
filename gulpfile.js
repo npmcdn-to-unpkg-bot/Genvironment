@@ -2,33 +2,40 @@
  * Created by rimambaks on 11/13/2015.
  */
 
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var browserSync = require('browser-sync');
-var runSequence = require('run-sequence');
-var series = require('stream-series');
-var del = require('del');
+//   load NPM plugins
+var gulp = require('gulp'),
+    browserSync = require('browser-sync'),
+    runSequence = require('run-sequence'),
+    series = require('stream-series'),
+    del = require('del')
+
+// load gulp config file
 var config = require('./gulp.config')();
+
+// load all gulp plugins
 var $ = require('gulp-load-plugins')();
 
-
+// change the index.html references
 gulp.task('index', function () {
-    var target = gulp.src(config.build + 'index.html');
-    // It's not necessary to read the files (will speed up things), we're only after their paths:
 
+    $.util.log($.util.colors.blue('changing the index.html file'));
+
+    // sources
     var systemJsFile = 'system.src.js';
-
     var primarySource = gulp.src(config.build + 'lib/' + systemJsFile, {read: false});
+    var secondarySources = gulp.src([config.build + 'lib/*', '!' + config.build + 'lib/' + systemJsFile], {read: false});
 
-    var sources = gulp.src([config.build + 'lib/*', '!' + config.build + 'lib/' + systemJsFile], {read: false});
+    // targets
+    var target = gulp.src(config.build + 'index.html');
 
-    return target.pipe($.inject(series(primarySource, sources),{relative: true}))
+    return target.pipe($.inject(series(primarySource, secondarySources), {relative: true}))
         .pipe(gulp.dest(config.build));
 });
 
 
 // clean the contents of the distribution directory
 gulp.task('clean', function () {
+    $.util.log($.util.colors.red('cleaning the build folder'));
     return del(config.lib);
 });
 gulp.task('copy:libs', ['clean'], function () {
@@ -59,7 +66,7 @@ gulp.task('copy:assets', function () {
 
 gulp.task('styles', function () {
 
-    gutil.log(gutil.colors.blue('Compiling SASS --> CSS'));
+    $.util.log($.util.colors.blue('Compiling SASS --> CSS'));
 
     return gulp
         .src(config.sass)
@@ -87,7 +94,7 @@ gulp.task('styles', function () {
 
 gulp.task('serve', function () {
 
-    gutil.log(gutil.colors.green('Serving the browser'));
+    $.util.log($.util.colors.green('Serving the browser'));
 
     browserSync({
         server: {
