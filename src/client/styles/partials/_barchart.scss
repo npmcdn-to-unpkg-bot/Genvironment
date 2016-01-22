@@ -1,0 +1,20 @@
+.bar {
+  fill: tomato;
+}
+
+
+.axis {
+
+  path, line {
+    fill: none;
+    stroke: #eee;
+    shape-rendering: crispEdges;
+  }
+
+  text {
+    font-size: 1.1em;
+  }
+
+
+
+}
