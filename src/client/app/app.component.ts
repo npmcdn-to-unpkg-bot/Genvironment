@@ -3,12 +3,13 @@ import {ObjectTreeDirective} from "./object-tree/object-tree.directive";
 import {RelaticsService} from "./relatics/relatics.service";
 import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service";
 import {TaskList} from './task-list/task-list.component'
+import {BarChartDirective} from './bar-chart/bar-chart.directive'
 
 @Component({
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective, TaskList]
+    directives: [ObjectTreeDirective,BarChartDirective, TaskList]
 })
 
 export class AppComponent implements OnInit {
