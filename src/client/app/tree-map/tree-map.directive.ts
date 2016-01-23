@@ -5,7 +5,6 @@ import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "ang
     selector: '[myTreeMapData]',
 })
 
-
 export class TreeMapDirective implements OnChanges {
 
     public divs:any;
