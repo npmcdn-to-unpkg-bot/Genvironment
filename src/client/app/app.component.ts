@@ -4,12 +4,15 @@ import {RelaticsService} from "./relatics/relatics.service";
 import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service";
 import {TaskList} from './task-list/task-list.component'
 import {BarChartDirective} from './bar-chart/bar-chart.directive'
+import {PeopleComponent} from "./http-service/people-http.component";
+import 'rxjs/add/operator/map';
+
 
 @Component({
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective,BarChartDirective, TaskList]
+    directives: [ObjectTreeDirective,BarChartDirective, TaskList,PeopleComponent ]
 })
 
 export class AppComponent implements OnInit {
