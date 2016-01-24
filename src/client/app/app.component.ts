@@ -5,8 +5,7 @@ import {RelaticsDataTransformService} from "./object-tree/relatics-data-transfor
 import {TaskList} from './task-list/task-list.component'
 import {BarChartDirective} from './bar-chart/bar-chart.directive'
 import {PeopleComponent} from "./http-service/people-http.component";
-import 'rxjs/add/operator/map';
-
+import 'rxjs/Rx';
 
 @Component({
     selector: "my-app",
