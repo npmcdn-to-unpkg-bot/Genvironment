@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core'
 import {Http, HTTP_PROVIDERS} from 'angular2/http'
+import {OnInit} from "angular2/core";
 
 @Component({
     selector: 'http-app',
@@ -8,14 +9,19 @@ import {Http, HTTP_PROVIDERS} from 'angular2/http'
 
 })
 
-export class PeopleComponent {
+export class PeopleComponent implements OnInit{
 
     people:any;
 
-    constructor(http:Http) {
+    constructor(private http:Http) {
 
-        http.get('app/http-service/people.json')
+    }
+
+    ngOnInit() {
+        this.http.get('app/http-service/people.json')
             .map(res=> res.json())
             .subscribe(people => this.people = people)
+
     }
+
 }
