@@ -9,9 +9,10 @@ import {OnInit} from "angular2/core";
 
 })
 
-export class PeopleComponent implements OnInit{
+export class PeopleComponent implements OnInit {
 
     people:any;
+
     constructor(private http:Http) {
 
     }
@@ -19,6 +20,11 @@ export class PeopleComponent implements OnInit{
     ngOnInit() {
 
 
+        this.http.get('')
+            .map(res=> res.text())
+            .map(res => res.split(','))
+            .map(res => console.log(res[4]))
+            .subscribe(people => this.people = people)
 
     }
 
