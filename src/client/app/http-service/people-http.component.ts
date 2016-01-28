@@ -20,11 +20,25 @@ export class PeopleComponent implements OnInit {
     ngOnInit() {
 
 
-        this.http.get('')
-            .map(res=> res.text())
-            .map(res => res.split(','))
-            .map(res => console.log(res[4]))
-            .subscribe(people => this.people = people)
+        this.http.get('app/http-service/eng2-2013-14.json')
+            .map(res=> res.json())
+            .subscribe(res => {
+
+
+                let dataObject = d3.merge(
+                    res.map(
+                        (d) => { d.Games.forEach(
+                                (g) => { g.Date = d.Date }
+                            );
+
+                            return d.Games
+                        })
+                )
+
+                console.log(dataObject);
+
+
+            })
 
     }
 
