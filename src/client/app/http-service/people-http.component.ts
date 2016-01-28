@@ -12,15 +12,13 @@ import {OnInit} from "angular2/core";
 export class PeopleComponent implements OnInit{
 
     people:any;
-
     constructor(private http:Http) {
 
     }
 
     ngOnInit() {
-        this.http.get('app/http-service/people.json')
-            .map(res=> res.json())
-            .subscribe(people => this.people = people)
+
+
 
     }
 
