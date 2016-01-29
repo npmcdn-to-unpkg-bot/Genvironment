@@ -4,7 +4,7 @@ import {RelaticsService} from "./relatics/relatics.service";
 import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service";
 import {TaskList} from './task-list/task-list.component'
 import {BarChartDirective} from './bar-chart/bar-chart.directive'
-import {PeopleComponent} from "./http-service/people-http.component";
+import {PeopleComponent} from "./games/people-http.component";
 import 'rxjs/Rx';
 
 @Component({

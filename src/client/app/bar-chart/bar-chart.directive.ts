@@ -53,10 +53,6 @@ export class BarChartDirective implements OnChanges {
             {axis: yAxis, dx: margin.left, dy: 0, clazz: 'y'}
         ];
 
-
-
-
-
         // standard graph drawing function
         function redraw(data) {
             //fill in here
