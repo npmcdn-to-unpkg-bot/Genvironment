@@ -17,7 +17,7 @@ export class LineChartDirective implements OnChanges {
 
     render(lineChartData:any) {
 
-        console.log(lineChartData);
+        console.log('The first Line up is equal to' + lineChartData[0]);
 
 
            // create window for your chart;
@@ -33,12 +33,14 @@ export class LineChartDirective implements OnChanges {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         // scales
-        let x = d3.scale
-            .ordinal()
-            .rangeRoundBands([margin.left, width - margin.right], 0.1);
+        let x = d3.time.scale().range([margin.left, width - margin.right]);
+        let y = d3.scale.linear().range([height-margin.bottom, margin.top]);
 
-        let y = d3.scale.linear()
-            .range([height-margin.bottom, margin.top]);
+        // set domain values
+
+
+        x.domain(lineChartData[0], lineChartData[lineChartData.length - 1].Date);
+        y.domain([0,100]);
 
         // axes
         let xAxis = d3.svg.axis()
@@ -56,8 +58,13 @@ export class LineChartDirective implements OnChanges {
             {axis: yAxis, dx: margin.left, dy: 0, clazz: 'y'}
         ];
 
+        let pointLine = d3.svg.line()
+            .x(d => x(d.date))
+            .y(d => y(d.leaguePoints));
+
         // standard function to redraw the data on the screen
         function redraw(data) {
+
 
 
 
