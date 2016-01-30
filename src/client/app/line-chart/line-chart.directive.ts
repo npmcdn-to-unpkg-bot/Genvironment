@@ -65,6 +65,22 @@ export class LineChartDirective implements OnChanges {
         // standard function to redraw the data on the screen
         function redraw(data) {
 
+            let lines = svg.selectAll('.line-graph')
+                .data(data.entries())
+
+            lines.enter()
+                .append('g')
+                .attr('class', line-graph)
+                .attr('transform', 'translate('+xAxis.tickPadding()+',0)');
+
+            let path = lines.append('path')
+                .datum(d => d.value)
+                .attr('d', d => pointLine(d))
+
+
+
+
+
 
 
 
