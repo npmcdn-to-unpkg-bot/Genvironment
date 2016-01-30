@@ -47,8 +47,6 @@ export class PeopleComponent implements OnInit {
         this.http.get('app/games/eng2-2013-14.json')
             .map(res=> res.json())
             .subscribe(res => {
-                console.log('INITIAL');
-                console.log(res);
 
 
                 let dataObject = d3.merge(

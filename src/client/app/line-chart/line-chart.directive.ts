@@ -17,6 +17,8 @@ export class LineChartDirective implements OnChanges {
 
     render(lineChartData:any) {
 
+        console.log(lineChartData);
+
 
            // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},

@@ -11,7 +11,7 @@ import 'rxjs/Rx';
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective,BarChartDirective, TaskList,PeopleComponent ]
+    directives: [ObjectTreeDirective, BarChartDirective, TaskList, PeopleComponent]
 })
 
 export class AppComponent implements OnInit {
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     graphData:any;
 
 
-    constructor( public _RelaticsService:RelaticsService, public _RelaticsDataTransformService:RelaticsDataTransformService) {
+    constructor(public _RelaticsService:RelaticsService, public _RelaticsDataTransformService:RelaticsDataTransformService) {
 
 
     }
@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 
         this.webserviceError = false;
 
-        this._RelaticsService.GetData(relaticsObject.operationName, relaticsObject.workspaceId, relaticsObject.entryCode, relaticsObject.objectId)
+      /*  this._RelaticsService.GetData(relaticsObject.operationName, relaticsObject.workspaceId, relaticsObject.entryCode, relaticsObject.objectId)
             .then((val) =>
                 this._RelaticsDataTransformService.ObjectTreeTransformation(val)
             )
@@ -46,13 +46,13 @@ export class AppComponent implements OnInit {
                 this.graphData = val; // assigns object to this.graphdata
             })
             .catch((err) => {
-                this.webserviceError = true;
-                console.error("rejected:", err);   }
-                )
+                    this.webserviceError = true;
+                    console.error("rejected:", err);
+                }
+            )
+*/
 
-
-
-}
+    }
 
 
 }
