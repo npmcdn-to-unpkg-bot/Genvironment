@@ -78,19 +78,7 @@ export class LineChartDirective implements OnChanges {
                 .attr('d', d => pointLine(d))
 
 
-
-
-
-
-
-
-
-
         }
-
-
-
-
 
     }
 
@@ -113,7 +101,7 @@ export class LineChartDirective implements OnChanges {
     ngOnChanges(changes:{}):any {
          // only render when barChartData exists
         if (this.lineChartData) {
-            this.render(this.lineChartData);
+            console.log(this.lineChartData)
         }
     }
 

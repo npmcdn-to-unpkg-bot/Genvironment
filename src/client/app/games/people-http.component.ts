@@ -44,6 +44,9 @@ export class PeopleComponent implements OnInit {
         }
 
 
+        // TODO need to check the d3.json to get a hashable d3 object.
+
+
         this.http.get('app/games/eng2-2013-14.json')
             .map(res=> res.json())
             .subscribe(res => {
@@ -64,7 +67,7 @@ export class PeopleComponent implements OnInit {
 
                 let dataMap = d3.map();
 
-                let xObject = d3.merge([
+                d3.merge([
                     d3.nest().key(d => d.Away).entries(dataObject),
                     d3.nest().key(d => d.Home).entries(dataObject)
                 ]).forEach(d => {
@@ -81,6 +84,8 @@ export class PeopleComponent implements OnInit {
 
 
                 });
+
+                console.log(dataMap);
 
                 dataMap.forEach((key, values) => {
 
