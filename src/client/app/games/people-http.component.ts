@@ -85,7 +85,6 @@ export class PeopleComponent implements OnInit {
 
                 });
 
-                console.log(dataMap);
 
                 dataMap.forEach((key, values) => {
 
@@ -100,7 +99,9 @@ export class PeopleComponent implements OnInit {
 
                 });
 
-                this.people = dataMap;
+
+
+                this.people = dataMap._;
 
 
 

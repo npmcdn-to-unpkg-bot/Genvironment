@@ -17,7 +17,7 @@ export class LineChartDirective implements OnChanges {
 
     render(lineChartData:any) {
 
-        console.log('The first Line up is equal to' + lineChartData[0]);
+        console.log(lineChartData);
 
 
            // create window for your chart;
@@ -39,7 +39,7 @@ export class LineChartDirective implements OnChanges {
         // set domain values
 
 
-        x.domain(lineChartData[0], lineChartData[lineChartData.length - 1].Date);
+        x.domain(lineChartData[0], lineChartData[lineChartData.length - 1].date);
         y.domain([0,100]);
 
         // axes
@@ -101,7 +101,7 @@ export class LineChartDirective implements OnChanges {
     ngOnChanges(changes:{}):any {
          // only render when barChartData exists
         if (this.lineChartData) {
-            console.log(this.lineChartData)
+         this.render(this.lineChartData)
         }
     }
 
