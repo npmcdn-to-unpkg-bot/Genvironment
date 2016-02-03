@@ -17,10 +17,10 @@ export class LineChartDirective implements OnChanges {
 
     render(lineChartData:any) {
 
-        console.log(lineChartData);
+        console.log(console.log(lineChartData.date));
 
 
-           // create window for your chart;
+        // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
             width = 800 - margin.right - margin.left,
             height = 800 - margin.top - margin.bottom;
@@ -34,13 +34,13 @@ export class LineChartDirective implements OnChanges {
 
         // scales
         let x = d3.time.scale().range([margin.left, width - margin.right]);
-        let y = d3.scale.linear().range([height-margin.bottom, margin.top]);
+        let y = d3.scale.linear().range([height - margin.bottom, margin.top]);
 
         // set domain values
 
-
-        x.domain(lineChartData[0], lineChartData[lineChartData.length - 1].date);
-        y.domain([0,100]);
+        //
+        //x.domain(lineChartData[0].date, lineChartData[lineChartData.length - 1].date);
+        y.domain([0, 100]);
 
         // axes
         let xAxis = d3.svg.axis()
@@ -54,7 +54,7 @@ export class LineChartDirective implements OnChanges {
             .orient('left');
 
         let axisData = [
-            {axis: xAxis, dx: 0, dy: (height-margin.bottom), clazz: 'x' },
+            {axis: xAxis, dx: 0, dy: (height - margin.bottom), clazz: 'x'},
             {axis: yAxis, dx: margin.left, dy: 0, clazz: 'y'}
         ];
 
@@ -66,12 +66,12 @@ export class LineChartDirective implements OnChanges {
         function redraw(data) {
 
             let lines = svg.selectAll('.line-graph')
-                .data(data.entries())
+                .data(data.entries());
 
             lines.enter()
                 .append('g')
-                .attr('class', line-graph)
-                .attr('transform', 'translate('+xAxis.tickPadding()+',0)');
+                .attr('class', line - graph)
+                .attr('transform', 'translate(' + xAxis.tickPadding() + ',0)');
 
             let path = lines.append('path')
                 .datum(d => d.value)
@@ -82,13 +82,6 @@ export class LineChartDirective implements OnChanges {
 
     }
 
-
-
-
-
-
-
-
     constructor(elementRef:ElementRef) {
 
         let el:any = elementRef.nativeElement;
@@ -97,11 +90,15 @@ export class LineChartDirective implements OnChanges {
 
     }
 
-
     ngOnChanges(changes:{}):any {
-         // only render when barChartData exists
+        // only render when barChartData exists
         if (this.lineChartData) {
-         this.render(this.lineChartData)
+
+            let x= this.lineChartData._;
+
+            this.render(Object.keys(x));
+
+
         }
     }
 

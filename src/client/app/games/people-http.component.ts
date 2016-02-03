@@ -44,9 +44,6 @@ export class PeopleComponent implements OnInit {
         }
 
 
-        // TODO need to check the d3.json to get a hashable d3 object.
-
-
         this.http.get('app/games/eng2-2013-14.json')
             .map(res=> res.json())
             .subscribe(res => {
@@ -101,7 +98,7 @@ export class PeopleComponent implements OnInit {
 
 
 
-                this.people = dataMap._;
+                this.people = dataMap;
 
 
 
