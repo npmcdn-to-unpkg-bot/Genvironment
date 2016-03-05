@@ -9,7 +9,7 @@ export class RelaticsService {
     GetData(operationName:string, workspaceId:string, entryCode:string, objectId:string):Promise<HTMLDocument> {
 
         // xml Data for the SOAP request
-        var xml = '<soap:Envelope ' + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
+        let xml = '<soap:Envelope ' + 'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ' +
             'xmlns:xsd="http://www.w3.org/2001/XMLSchema" ' +
             'xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
             '<soap:Body>' +
