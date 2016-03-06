@@ -1,23 +1,17 @@
 // Modules and Variables
 @import 'modules/colors';
-
-
 // Partials
 @import 'partials/typography';
 @import 'partials/buttons';
 @import 'partials/checkbox';
 @import 'partials/messages';
 @import 'partials/barchart';
-
-
 // Project specific
 @import 'object-tree/base';
-
 
 /* =============================
              GENERAL
 ===============================*/
-
 
 * {
   box-sizing: border-box;
@@ -104,7 +98,7 @@ nav {
 
 }
 
-footer  {
+footer {
   display: none;
 }
 
@@ -137,7 +131,9 @@ my-task {
 
   flex: 2 1;
 
-}.task__1-box-b {
+}
+
+.task__1-box-b {
   flex: 8 1;
 
 }
