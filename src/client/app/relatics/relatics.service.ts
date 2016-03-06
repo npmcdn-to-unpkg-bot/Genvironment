@@ -38,11 +38,12 @@ export class RelaticsService {
             '</soap:Envelope>';
 
 
-        // Send SOAP request (send xml data)
+        // Define a SOAP request for relatics endpoint
         let SoapRequest;
         let url = "https://arcadis.relaticsonline.com/DataExchange.asmx?wsdl";
         SoapRequest = new XMLHttpRequest();
 
+        // Send xml data to endpoint
         SoapRequest.open("POST", url, false);
         SoapRequest.setRequestHeader('Content-Type', 'text/xml; charset-utf-8');
         SoapRequest.send(xml);
