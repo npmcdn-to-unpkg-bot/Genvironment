@@ -9,13 +9,13 @@ import {Inject} from "angular2/core";
 export class BarChartDirective implements OnChanges {
 
     // data input for my bar chart
-    @Input('myBarChartInput') barChartData;
+    @Input('barChartData') barChartData;
 
     public divs:any;
 
     render(barChartData:any) {
 
-        let testData = [1, 23, 34, 23, 23, 15, 1, 23, 51, 99, 5, 2];
+        let testData = [10, 23, 34, 23, 23, 15, 1, 23, 51, 99, 5, 2];
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
