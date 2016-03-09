@@ -41,7 +41,8 @@
     "run-sequence": "^1.1.5",
     "stream-series": "^0.1.1",
     "tinycolor": "0.0.1",
-    "typescript": "^1.8.2"
+    "typescript": "^1.8.2",
+    "typings": "^0.7.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
