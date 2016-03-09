@@ -1,5 +1,4 @@
 import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "angular2/core";
-import {Inject} from "angular2/core";
 
 
 @Directive({
@@ -9,13 +8,14 @@ import {Inject} from "angular2/core";
 export class BarChartDirective implements OnChanges {
 
     // data input for my bar chart
-    @Input('barChartData') barChartData;
+    @Input('barChartData')
+    barChartData;
 
     public divs:any;
 
     render(barChartData:any) {
 
-        let testData = [10, 23, 34, 23, 23, 15, 1, 23, 51, 99, 5, 2];
+        let testData = [10, 23, 34, 23, 23, 15, 1, 23, 51, 140, 5, 2,60];
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
@@ -30,26 +30,23 @@ export class BarChartDirective implements OnChanges {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         // scales
-        let x = d3.scale
-            .ordinal()
+        let x = d3.scale.ordinal()
             .rangeRoundBands([margin.left, width - margin.right], 0.1);
 
         let y = d3.scale.linear()
-            .range([height-margin.bottom, margin.top]);
+            .range([height - margin.bottom, margin.top]);
 
         // axes
         let xAxis = d3.svg.axis()
             .scale(x)
-            .orient('bottom')
-            .ticks;
+            .orient('bottom');
 
-        let yAxis = d3.svg
-            .axis()
+        let yAxis = d3.svg.axis()
             .scale(y)
             .orient('left');
 
         let axisData = [
-            {axis: xAxis, dx: 0, dy: (height-margin.bottom), clazz: 'x' },
+            {axis: xAxis, dx: 0, dy: (height - margin.bottom), clazz: 'x'},
             {axis: yAxis, dx: margin.left, dy: 0, clazz: 'y'}
         ];
 
@@ -60,6 +57,7 @@ export class BarChartDirective implements OnChanges {
 
             x.domain(data.map((d, i) => i));
             y.domain([0, d3.max(data, (d) => d)]);
+
 
             let bars = svg.selectAll('rect.bar')
                 .data(data);
@@ -74,10 +72,10 @@ export class BarChartDirective implements OnChanges {
                 .attr('y', y(0))
                 .attr('height', 0)
                 .transition()
-                .delay((d,i) => i*50)
+                .delay((d, i) => i * 50)
                 .duration(800)
                 .attr('y', (d) => y(d))
-                .attr('height', (d) => y(0) - y(d))
+                .attr('height', (d) => y(0) - y(d));
         }
 
 
@@ -87,11 +85,11 @@ export class BarChartDirective implements OnChanges {
         axis.enter().append('g')
             .classed('axis', true);
 
-        axis.each(function(d) {
+        axis.each(function (d) {
             d3.select(this)
                 .attr('transform', 'translate(' + d.dx + ',' + d.dy + ')')
                 .classed(d.clazz, true)
-                .call(d.axis)
+                .call(d.axis);
         });
 
         redraw(testData);

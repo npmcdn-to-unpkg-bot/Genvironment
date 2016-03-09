@@ -22,7 +22,6 @@ export class AppComponent implements OnInit {
 
     constructor(public _RelaticsService:RelaticsService, public _RelaticsDataTransformService:RelaticsDataTransformService) {
 
-
     }
 
     ngOnInit() {
