@@ -1,6 +1,5 @@
 import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "angular2/core";
 
-
 @Directive({
     selector: 'myBarChart'
 })
@@ -15,7 +14,7 @@ export class BarChartDirective implements OnChanges {
 
     render(barChartData:any) {
 
-        let testData = [10, 23, 34, 23, 23, 15, 1, 23, 51, 140, 5, 2,60];
+        let testData = [12, 45, 2, 31, 12];
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
@@ -31,7 +30,7 @@ export class BarChartDirective implements OnChanges {
 
         // scales
         let x = d3.scale.ordinal()
-            .rangeRoundBands([margin.left, width - margin.right], 0.1);
+            .rangeRoundBands([margin.left, width - margin.right], 0.1, .3);
 
         let y = d3.scale.linear()
             .range([height - margin.bottom, margin.top]);
@@ -76,21 +75,30 @@ export class BarChartDirective implements OnChanges {
                 .duration(800)
                 .attr('y', (d) => y(d))
                 .attr('height', (d) => y(0) - y(d));
+
+            // change colour of greatest 3 assets
+            bars.style('fill', (d) => {
+
+
+                if (d > 3) {
+                    return 'gray'
+                }
+            });
+            
+            let axis = svg.selectAll('g.axis')
+                .data(axisData);
+
+            axis.enter().append('g')
+                .classed('axis', true);
+
+            axis.each(function (d) {
+                d3.select(this)
+                    .attr('transform', 'translate(' + d.dx + ',' + d.dy + ')')
+                    .classed(d.clazz, true)
+                    .call(d.axis);
+            });
         }
 
-
-        let axis = svg.selectAll('g.axis')
-            .data(axisData);
-
-        axis.enter().append('g')
-            .classed('axis', true);
-
-        axis.each(function (d) {
-            d3.select(this)
-                .attr('transform', 'translate(' + d.dx + ',' + d.dy + ')')
-                .classed(d.clazz, true)
-                .call(d.axis);
-        });
 
         redraw(testData);
 
