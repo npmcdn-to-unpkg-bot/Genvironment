@@ -90,14 +90,12 @@ export class LineChartDirective implements OnChanges {
 
     }
 
-    ngOnChanges(changes:{}):any {
+    ngOnChanges():any {
         // only render when barChartData exists
         console.log('test');
         if (this.lineChartData) {
 
-            let x= this.lineChartData._;
-
-            this.render();
+            this.render(this.lineChartData);
 
 
         }
