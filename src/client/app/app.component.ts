@@ -6,12 +6,13 @@ import {TaskList} from './task-list/task-list.component'
 import {BarChartDirective} from './bar-chart/bar-chart.directive'
 import {PeopleComponent} from "./games/people-http.component";
 import 'rxjs/Rx';
+import {LineChartDirective} from "./line-chart/line-chart.directive";
 
 @Component({
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective, BarChartDirective, TaskList, PeopleComponent]
+    directives: [ObjectTreeDirective, BarChartDirective, TaskList, PeopleComponent, LineChartDirective]
 })
 
 export class AppComponent implements OnInit {

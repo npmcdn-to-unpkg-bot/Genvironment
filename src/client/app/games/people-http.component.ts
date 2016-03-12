@@ -42,12 +42,13 @@ export class PeopleComponent implements OnInit {
 
 
         }
+        console.log('hi')
 
 
         this.http.get('app/games/eng2-2013-14.json')
             .map(res=> res.json())
             .subscribe(res => {
-
+                console.log(res);
                 let dataObject = d3.merge(
                     res.map(
                         (d) => {

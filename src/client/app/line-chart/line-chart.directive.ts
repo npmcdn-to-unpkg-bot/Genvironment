@@ -4,20 +4,20 @@ import {Inject} from "angular2/core";
 @Directive({
 
         selector: 'myLineChart'
-
     }
 )
 
 export class LineChartDirective implements OnChanges {
 
 
-    @Input('myLineChartInput') lineChartData;
+    @Input('lineChartData') lineChartData;
 
     public divs:any;
 
     render(lineChartData:any) {
 
-        console.log(console.log(lineChartData.date));
+        console.log('test');
+        
 
 
         // create window for your chart;
@@ -92,11 +92,12 @@ export class LineChartDirective implements OnChanges {
 
     ngOnChanges(changes:{}):any {
         // only render when barChartData exists
+        console.log('test');
         if (this.lineChartData) {
 
             let x= this.lineChartData._;
 
-            this.render(Object.keys(x));
+            this.render();
 
 
         }

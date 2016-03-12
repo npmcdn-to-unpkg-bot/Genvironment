@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     series = require('stream-series'),
-    del = require('del')
+    del = require('del');
 
 // load gulp config file
 var config = require('./gulp.config')();
@@ -58,10 +58,10 @@ gulp.task('copy:assets', function () {
             config.client + '**/*',
             '!' + config.client + '**/*.ts',
             '!' + config.client + '**/*.scss',
-            '!' + config.css + '**/!(main.css)',
+            '!' + config.css + '**/!(main.css)'
         ])
-        .pipe(gulp.dest(config.build))
-})
+        .pipe(gulp.dest(config.build));
+});
 
 
 gulp.task('styles', function () {
