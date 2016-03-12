@@ -48,13 +48,12 @@ export class PeopleComponent implements OnInit {
             .map(res=> res.json())
             .subscribe(res => {
 
-
                 let dataObject = d3.merge(
                     res.map(
                         (d) => {
                             d.Games.forEach(
                                 (g) => {
-                                    g.Date = d.Date
+                                    g.Date = +d.Date
                                 }
                             );
 
