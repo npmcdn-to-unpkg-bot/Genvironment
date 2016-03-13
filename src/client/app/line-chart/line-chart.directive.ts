@@ -16,7 +16,7 @@ export class LineChartDirective implements OnChanges {
 
     render(lineChartData:any) {
 
-        console.log('test');
+        console.log(lineChartData);
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
@@ -37,7 +37,7 @@ export class LineChartDirective implements OnChanges {
         // set domain values
 
         //
-        //x.domain(lineChartData[0].date, lineChartData[lineChartData.length - 1].date);
+        x.domain(lineChartData[0].date, lineChartData[lineChartData.length - 1].date);
         y.domain([0, 100]);
 
         // axes
@@ -68,7 +68,7 @@ export class LineChartDirective implements OnChanges {
 
             lines.enter()
                 .append('g')
-                .attr('class', line - graph)
+                .attr('class', 'line - graph')
                 .attr('transform', 'translate(' + xAxis.tickPadding() + ',0)');
 
             let path = lines.append('path')
@@ -88,9 +88,8 @@ export class LineChartDirective implements OnChanges {
 
     ngOnChanges():any {
         // only render when barChartData exists
-        console.log('test');
         if (this.lineChartData) {
-
+            
             this.render(this.lineChartData);
 
 

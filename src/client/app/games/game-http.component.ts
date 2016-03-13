@@ -19,32 +19,10 @@ export class GameComponent implements OnInit {
 
     }
 
-    ngOnInit() {
-
-        function gameOutCome(team, game, games) {
-            let isAway:boolean = (game.Away === team);
-            let goals = isAway ? +game.AwayScore : +game.HomeScore;
-            let allowed = isAway ? +game.HomeScore : +game.AwayScore;
-            let decision = (goals > allowed) ? 'win' : (goals < allowed) ? 'loss' : 'draw';
-            let points = (goals > allowed) ? 3 : (goals < allowed) ? 0 : 1;
-            return {
-                date: game.Date,
-                team: team,
-                align: isAway ? 'away' : 'home',
-                opponent: isAway ? game.Home : game.Away,
-                goals: goals,
-                allowed: allowed,
-                venue: game.Venue,
-                decision: decision,
-                points: points,
-                leaguePoints: d3.sum(games, (d) => d.points) + points
-            }
+    transformGamesData(url) {
 
 
-        }
-
-
-        this.http.get('app/games/eng2-2013-14.json')
+        this.http.get(url)
             .map(res=> res.json())
             .subscribe(res => {
                 let dataObject = d3.merge(
@@ -59,8 +37,6 @@ export class GameComponent implements OnInit {
                             return d.Games
                         })
                 );
-
-                console.log(dataObject);
 
 
 
@@ -86,6 +62,7 @@ export class GameComponent implements OnInit {
                 });
 
 
+
                 dataMap.forEach((key, values) => {
 
                     let games = [];
@@ -96,16 +73,45 @@ export class GameComponent implements OnInit {
                     dataMap.set(key, games);
 
 
-
                 });
 
 
 
-                this.people = dataMap;
+                this.gameData = dataMap._;
 
 
+            });
 
-            })
+
+        function gameOutCome(team, game, games) {
+            let isAway:boolean = (game.Away === team);
+            let goals = isAway ? +game.AwayScore : +game.HomeScore;
+            let allowed = isAway ? +game.HomeScore : +game.AwayScore;
+            let decision = (goals > allowed) ? 'win' : (goals < allowed) ? 'loss' : 'draw';
+            let points = (goals > allowed) ? 3 : (goals < allowed) ? 0 : 1;
+            return {
+                date: game.Date,
+                team: team,
+                align: isAway ? 'away' : 'home',
+                opponent: isAway ? game.Home : game.Away,
+                goals: goals,
+                allowed: allowed,
+                venue: game.Venue,
+                decision: decision,
+                points: points,
+                leaguePoints: d3.sum(games, (d) => d.points) + points
+            }
+
+
+        }
+
+
+    }
+
+    ngOnInit() {
+
+        this.transformGamesData('app/games/eng2-2013-14.json');
+
 
     }
 
