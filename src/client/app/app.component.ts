@@ -12,7 +12,7 @@ import {LineChartDirective} from "./line-chart/line-chart.directive";
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective, BarChartDirective, TaskList, PeopleComponent, LineChartDirective]
+    directives: [ObjectTreeDirective, BarChartDirective, TaskList]
 })
 
 export class AppComponent implements OnInit {
