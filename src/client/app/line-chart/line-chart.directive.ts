@@ -36,8 +36,7 @@ export class LineChartDirective implements OnChanges {
 
         // set domain values
 
-        //
-        x.domain(lineChartData[0].date, lineChartData[lineChartData.length - 1].date);
+        x.domain(lineChartData['beginDate'], lineChartData['finalDate']);
         y.domain([0, 100]);
 
         // axes

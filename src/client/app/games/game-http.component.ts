@@ -39,7 +39,6 @@ export class GameComponent implements OnInit {
                 );
 
 
-
                 let dataMap = d3.map();
 
 
@@ -62,7 +61,6 @@ export class GameComponent implements OnInit {
                 });
 
 
-
                 dataMap.forEach((key, values) => {
 
                     let games = [];
@@ -75,10 +73,11 @@ export class GameComponent implements OnInit {
 
                 });
 
+                let beginDate:any = res[0].Date;
+                let finalDate:any = res[res.length - 1].Date;
 
-
-                this.gameData = dataMap._;
-
+                this.gameData = {data: dataMap, beginDate: beginDate, finalDate: finalDate};
+                
 
             });
 
