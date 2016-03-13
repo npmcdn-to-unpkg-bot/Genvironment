@@ -11,7 +11,7 @@ import {LineChartDirective} from '../line-chart/line-chart.directive'
 
 })
 
-export class PeopleComponent implements OnInit {
+export class GameComponent implements OnInit {
 
     people:any;
 

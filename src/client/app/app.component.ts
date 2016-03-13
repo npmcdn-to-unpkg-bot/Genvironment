@@ -4,7 +4,7 @@ import {RelaticsService} from "./relatics/relatics.service";
 import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service";
 import {TaskList} from './task-list/task-list.component'
 import {BarChartDirective} from './bar-chart/bar-chart.directive'
-import {PeopleComponent} from "./games/game-http.component.ts";
+import {GameComponent} from './games/game-http.component'
 import 'rxjs/Rx';
 import {LineChartDirective} from "./line-chart/line-chart.directive";
 
@@ -12,7 +12,7 @@ import {LineChartDirective} from "./line-chart/line-chart.directive";
     selector: "my-app",
     templateUrl: "app/app.html",
     providers: [RelaticsDataTransformService, RelaticsService],
-    directives: [ObjectTreeDirective, BarChartDirective, TaskList]
+    directives: [ObjectTreeDirective, BarChartDirective, TaskList, GameComponent]
 })
 
 export class AppComponent implements OnInit {
