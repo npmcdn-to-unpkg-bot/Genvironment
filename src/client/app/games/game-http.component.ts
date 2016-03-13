@@ -13,7 +13,7 @@ import {LineChartDirective} from '../line-chart/line-chart.directive'
 
 export class GameComponent implements OnInit {
 
-    people:any;
+    gameData:any;
 
     constructor(private http:Http) {
 
@@ -42,19 +42,17 @@ export class GameComponent implements OnInit {
 
 
         }
-        console.log('hi');
 
 
         this.http.get('app/games/eng2-2013-14.json')
             .map(res=> res.json())
             .subscribe(res => {
-                console.log(res);
                 let dataObject = d3.merge(
                     res.map(
                         (d) => {
                             d.Games.forEach(
                                 (g) => {
-                                    g.Date = +d.Date
+                                    g.Date = d.Date
                                 }
                             );
 
@@ -62,7 +60,12 @@ export class GameComponent implements OnInit {
                         })
                 );
 
+                console.log(dataObject);
+
+
+
                 let dataMap = d3.map();
+
 
                 d3.merge([
                     d3.nest().key(d => d.Away).entries(dataObject),
