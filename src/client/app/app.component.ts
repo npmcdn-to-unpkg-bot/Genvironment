@@ -19,9 +19,10 @@ export class AppComponent implements OnInit {
 
     webserviceError:boolean;
     graphData:any;
+    gameData:any;
 
 
-    constructor(public _RelaticsService:RelaticsService, public _RelaticsDataTransformService:RelaticsDataTransformService) {
+    constructor(private _RelaticsService:RelaticsService, private _RelaticsDataTransformService:RelaticsDataTransformService) {
 
     }
 
@@ -37,20 +38,6 @@ export class AppComponent implements OnInit {
         };
 
         this.webserviceError = false;
-
-      /*  this._RelaticsService.GetData(relaticsObject.operationName, relaticsObject.workspaceId, relaticsObject.entryCode, relaticsObject.objectId)
-            .then((val) =>
-                this._RelaticsDataTransformService.ObjectTreeTransformation(val)
-            )
-            .then((val) => {
-                this.graphData = val; // assigns object to this.graphdata
-            })
-            .catch((err) => {
-                    this.webserviceError = true;
-                    console.error("rejected:", err);
-                }
-            )
-*/
 
     }
 

@@ -1,15 +1,9 @@
-import {Component} from 'angular2/core'
+import {Component, Injectable} from 'angular2/core'
 import {Http, HTTP_PROVIDERS} from 'angular2/http'
 import {OnInit} from "angular2/core";
 import {LineChartDirective} from '../line-chart/line-chart.directive'
 
-@Component({
-    selector: 'http-app',
-    viewProviders: [HTTP_PROVIDERS],
-    templateUrl: 'app/games/people.html',
-    directives: [LineChartDirective]
-
-})
+@Injectable()
 
 export class PeopleComponent implements OnInit {
 
@@ -42,7 +36,6 @@ export class PeopleComponent implements OnInit {
 
 
         }
-        console.log('hi');
 
 
         this.http.get('app/games/eng2-2013-14.json')

@@ -17,8 +17,6 @@ export class LineChartDirective implements OnChanges {
     render(lineChartData:any) {
 
         console.log('test');
-        
-
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
@@ -77,7 +75,6 @@ export class LineChartDirective implements OnChanges {
                 .datum(d => d.value)
                 .attr('d', d => pointLine(d))
 
-
         }
 
     }
@@ -85,7 +82,6 @@ export class LineChartDirective implements OnChanges {
     constructor(elementRef:ElementRef) {
 
         let el:any = elementRef.nativeElement;
-
         this.divs = d3.select(el);
 
     }
