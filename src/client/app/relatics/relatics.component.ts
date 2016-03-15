@@ -1,13 +1,23 @@
-import {Injectable} from 'angular2/core';
-import {Goal} from './goal'
+import {Component, OnChanges} from "angular2/core";
+import {RelaticsService} from "./relatics.service";
+import {Goal} from "./goal";
 
 
-@Injectable()
-export class RelaticsDataTransformService {
+@Component({
+    templateUrl: './relatics.component.html'
+})
 
-    //Transform relatics in object format
-    ObjectTreeTransformation(data:HTMLDocument) {
 
+export class RelaticsTree implements OnChanges {
+    
+    
+    constructor(private _RelaticsService:RelaticsService) {
+        
+    }
+    
+    RelaticsDataTransformService(data) {
+       
+     //Transform relatics in object format
         // alle doelen
         let goal = data.getElementsByTagName("doel")[0];
 
@@ -89,6 +99,13 @@ export class RelaticsDataTransformService {
 
         return myJson
 
+
+    
+    
+        
+    }
+
+    ngOnChanges() {
 
     }
 

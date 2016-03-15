@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from "angular2/core";
 
 
 @Injectable()
@@ -6,7 +6,7 @@ import {Injectable} from 'angular2/core';
 export class RelaticsService {
 
 
-    GetData(operationName:string, workspaceId:string, entryCode:string, objectId:string):Promise<HTMLDocument> {
+    GetData(url:string, operationName:string, workspaceId:string, entryCode:string, objectId:string):Promise<HTMLDocument> {
 
         // xml data for the SOAP request
         let xml = `<soap:Envelope   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
@@ -38,7 +38,6 @@ export class RelaticsService {
 
         // Define a SOAP request for relatics endpoint
         let SoapRequest= new XMLHttpRequest();
-        let url = 'https://-.relaticsonline.com/DataExchange.asmx?wsdl';
 
         // Send xml data to endpoint
         SoapRequest.open('POST', url, false);

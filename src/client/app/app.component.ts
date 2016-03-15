@@ -1,17 +1,15 @@
 import {Component, OnInit} from "angular2/core";
 import {ObjectTreeDirective} from "./object-tree/object-tree.directive";
 import {RelaticsService} from "./relatics/relatics.service";
-import {RelaticsDataTransformService} from "./object-tree/relatics-data-transform.service";
-import {TaskList} from './task-list/task-list.component'
-import {BarChartDirective} from './bar-chart/bar-chart.directive'
-import {GameComponent} from './games/game-http.component'
-import 'rxjs/Rx';
-import {LineChartDirective} from "./line-chart/line-chart.directive";
+import {TaskList} from "./task-list/task-list.component";
+import {BarChartDirective} from "./bar-chart/bar-chart.directive";
+import {GameComponent} from "./games/games.component";
+import "rxjs/Rx";
 
 @Component({
     selector: "my-app",
-    templateUrl: "app/app.html",
-    providers: [RelaticsDataTransformService, RelaticsService],
+    templateUrl: "app/app.component.html",
+    providers: [RelaticsService],
     directives: [ObjectTreeDirective, BarChartDirective, TaskList, GameComponent]
 })
 
