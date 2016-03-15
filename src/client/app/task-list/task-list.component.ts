@@ -4,7 +4,7 @@ import {EditTask} from './edit-task/edit-task.component'
 
 
 @Component({
-    templateUrl:'app/task-list/task-list.html',
+    templateUrl:'app/task-list/task-list.component.html',
     selector:'my-task-list',
     directives:[Task, EditTask]
 
@@ -23,12 +23,6 @@ export class TaskList {
             {title: 'Task 1', done: false},
             {title: 'Task 2', done: true}
         ]
-
-
     }
-
-
-
-
 
 }

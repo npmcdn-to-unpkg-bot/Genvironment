@@ -6,7 +6,7 @@ import {LineChartDirective} from '../line-chart/line-chart.directive'
 @Component({
     selector: 'games-app',
     viewProviders: [HTTP_PROVIDERS],
-    templateUrl: 'app/games/games.html',
+    templateUrl: 'app/games/games.component.html',
     directives: [LineChartDirective]
 
 })
@@ -14,13 +14,11 @@ import {LineChartDirective} from '../line-chart/line-chart.directive'
 export class GameComponent implements OnInit {
 
     gameData:any;
-
     constructor(private http:Http) {
 
     }
 
     transformGamesData(url) {
-
 
         this.http.get(url)
             .map(res=> res.json())
@@ -33,14 +31,11 @@ export class GameComponent implements OnInit {
                                     g.Date = d.Date
                                 }
                             );
-
                             return d.Games
                         })
                 );
 
-
                 let dataMap = d3.map();
-
 
                 d3.merge([
                     d3.nest().key(d => d.Away).entries(dataObject),
