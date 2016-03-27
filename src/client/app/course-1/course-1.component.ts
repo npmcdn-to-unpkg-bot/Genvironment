@@ -1,5 +1,5 @@
 import {Component, Input} from 'angular2/core'
-
+import {CourseOneService} from './course-1.service'
 
 @Component({
     selector: 'course-1',
@@ -11,16 +11,17 @@ import {Component, Input} from 'angular2/core'
         {{item}}
 </li>
         </ul>
-`
+`,
+    providers: [CourseOneService]
 })
 
 
 export class CourseOneComponent {
 
-    items:string[];
+    items:any;
 
-    constructor() {
-        this.items = ['as', 'as']
+    constructor(private _courseOneService:CourseOneService) {
+        this.items = _courseOneService.data
     }
 
 
