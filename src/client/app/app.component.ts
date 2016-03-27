@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
     gameData:any;
 
 
-    constructor(private _RelaticsService:RelaticsService, private _RelaticsDataTransformService:RelaticsDataTransformService) {
+    constructor(private _RelaticsService:RelaticsService) {
 
     }
 
