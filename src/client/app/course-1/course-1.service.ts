@@ -7,15 +7,7 @@ import {Injectable} from "angular2/core";
 export class CourseOneService {
 
     data = {
-        1: 2,
-        12: 2,
-        13: 2,
-        14: 2,
-        15: 2,
-        16: 2,
-        17: 2,
-        18: 2,
-        19: 2,
+        "courses": ["Course 1", "Course 2", "Course 3"], "authors": ["Author 1", "Author 2", "Author 3"]
     }
 
 

@@ -1,15 +1,22 @@
-import {Component, Input} from 'angular2/core'
-import {CourseOneService} from './course-1.service'
+import {Component} from "angular2/core";
+import {CourseOneService} from "./course-1.service";
 
 @Component({
     selector: 'course-1',
-    template: `<h1>Hello bitiah van mij</h1>
-
+    template: `<h1>Courses</h1>
+        <p>The title of the courses page</p>
         <ul>
-        <li *ngFor="#item of items">
+            <li *ngFor="#course of courses">
+                 {{course}}
+            </li>
+        </ul>
         
-        {{item}}
-</li>
+        <h1>Authors</h1>
+        <p>Title for the authors page</p>
+        <ul>
+            <li *ngFor="#author of authors">
+                 {{author}}
+            </li>
         </ul>
 `,
     providers: [CourseOneService]
@@ -18,10 +25,12 @@ import {CourseOneService} from './course-1.service'
 
 export class CourseOneComponent {
 
-    items:any;
+    courses:string[];
+    authors:string[];
 
     constructor(private _courseOneService:CourseOneService) {
-        this.items = _courseOneService.data
+        this.courses = _courseOneService.data.courses;
+        this.authors = _courseOneService.data.authors;
     }
 
 
