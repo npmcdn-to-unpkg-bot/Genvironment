@@ -4,14 +4,14 @@ import {RelaticsService} from "./relatics/relatics.service";
 import {TaskList} from "./task-list/task-list.component";
 import {BarChartDirective} from "./bar-chart/bar-chart.directive";
 import {GameComponent} from "./games/games.component";
-import {CourseOneComponent} from "./course-1/course-1.component";
+import {CourseTwoComponent} from "./course-2/course-2.component";
 import "rxjs/Rx";
 
 @Component({
     selector: "my-app",
     templateUrl: "app/app.component.html",
     providers: [RelaticsService],
-    directives: [ObjectTreeDirective, BarChartDirective, TaskList, GameComponent, CourseOneComponent]
+    directives: [ObjectTreeDirective, BarChartDirective, TaskList, GameComponent, CourseTwoComponent]
 })
 
 export class AppComponent implements OnInit {
