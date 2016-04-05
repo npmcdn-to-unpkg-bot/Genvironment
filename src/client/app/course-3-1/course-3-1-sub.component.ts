@@ -12,7 +12,8 @@ import {Component, Input, Output} from "angular2/core";
 <i class="glyphicon glyphicon-menu-down" (click)="onClick()"></i>
 
 </div>
-`
+`,
+    styles: [``]
 
 
 })
