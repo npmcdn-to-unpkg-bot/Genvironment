@@ -3,7 +3,7 @@ import {ComponentOneThreeSubComponent} from './course-3-1-sub.component'
 
 @Component({
     selector: 'course-3-1',
-    template: `<ffav>
+    template: `<ffav [voteCount]="votes.totalVotes">
             
             rwar
     
@@ -12,6 +12,12 @@ import {ComponentOneThreeSubComponent} from './course-3-1-sub.component'
 })
 
 export class CourseThreeOneComponent {
+    votes = {
+        isLike: false,
+        totalVotes: 10
+
+    }
+
 
 
 }
