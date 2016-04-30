@@ -3,7 +3,6 @@ import {Http, HTTP_PROVIDERS} from 'angular2/http'
 import {OnInit} from "angular2/core";
 import {LineChartDirective} from '../line-chart/line-chart.directive'
 
-declare let d3;
 
 
 @Component({

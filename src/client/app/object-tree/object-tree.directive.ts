@@ -2,7 +2,6 @@ import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "ang
 import {Inject} from "angular2/core";
 
 declare let tinycolor;
-declare let d3;
 
 @Directive({
     selector: '[myGraphData]',
