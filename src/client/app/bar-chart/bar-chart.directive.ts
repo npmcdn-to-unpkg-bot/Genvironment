@@ -55,7 +55,7 @@ export class BarChartDirective implements OnChanges {
 
 
             x.domain(data.map((d, i) => i));
-            y.domain([0, d3.max(data, (d) => d)]);
+            y.domain([0, d3.max(data, (d) => +d)]);
 
 
             let bars = svg.selectAll('rect.bar')
