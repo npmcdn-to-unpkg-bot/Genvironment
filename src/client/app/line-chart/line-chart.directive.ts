@@ -36,7 +36,7 @@ export class LineChartDirective implements OnChanges {
 
         // set domain values
 
-        x.domain(lineChartData['beginDate'], lineChartData['finalDate']);
+        // x.domain(lineChartData['beginDate'], lineChartData['finalDate']);
         y.domain([0, 100]);
 
         // axes
@@ -55,9 +55,9 @@ export class LineChartDirective implements OnChanges {
             {axis: yAxis, dx: margin.left, dy: 0, clazz: 'y'}
         ];
 
-        let pointLine = d3.svg.line()
-            .x(d => x(d.date))
-            .y(d => y(d.leaguePoints));
+        // let pointLine = d3.svg.line()
+        //     .x(d => x(d.date))
+        //     .y(d => y(d.leaguePoints));
 
         // standard function to redraw the data on the screen
         function redraw(data) {
@@ -65,14 +65,14 @@ export class LineChartDirective implements OnChanges {
             let lines = svg.selectAll('.line-graph')
                 .data(data.entries());
 
-            lines.enter()
-                .append('g')
-                .attr('class', 'line - graph')
-                .attr('transform', 'translate(' + xAxis.tickPadding() + ',0)');
+            // lines.enter()
+            //     .append('g')
+            //     .attr('class', 'line - graph')
+            //     .attr('transform', 'translate(' + xAxis.tickPadding() + ',0)');
 
-            let path = lines.append('path')
-                .datum(d => d.value)
-                .attr('d', d => pointLine(d))
+            // let path = lines.append('path')
+            //     .datum(d => d.value)
+            //     .attr('d', d => pointLine(d))
 
         }
 
