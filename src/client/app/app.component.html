@@ -1,12 +1,20 @@
-<h2>Ik houd van jou!</h2>
+<div class="navbar">
+    <ul class="nav">
+        <li><a [routerLink]="['CourseOne']">Course one</a></li>
+        <li><a [routerLink]="['CourseTwo']">Course two</a></li>
+        <li><a [routerLink]="['CourseThree']">Course tree</a></li>
+    </ul>
+</div>
+
+<div class="main-container">
 
 
-<router-outlet>
+    <router-outlet>
 
 
-</router-outlet>
+    </router-outlet>
 
-<myBarChart [barChartData]="[1,1,1]">
 
-</myBarChart>
+</div>
+
 

@@ -6,7 +6,7 @@ import {CourseOneService} from "./course-1.service";
     template: `<h1>Courses</h1>
         <p>The title of the courses page</p>
         <ul>
-            <li *ngFor="#course of courses">
+            <li *ngFor="let course of courses">
                  {{course}}
             </li>
         </ul>
@@ -14,7 +14,7 @@ import {CourseOneService} from "./course-1.service";
         <h1>Authors</h1>
         <p>Title for the authors page</p>
         <ul>
-            <li *ngFor="#author of authors">
+            <li *ngFor=" let author of authors">
                  {{author}}
             </li>
         </ul>
