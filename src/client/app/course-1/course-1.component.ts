@@ -1,5 +1,6 @@
 import {Component} from "angular2/core";
 import {CourseOneService} from "./course-1.service";
+import {PostService} from './post.service'
 
 @Component({
     selector: 'course-1',
@@ -19,7 +20,7 @@ import {CourseOneService} from "./course-1.service";
             </li>
         </ul>
 `,
-    providers: [CourseOneService]
+    providers: [CourseOneService, PostService]
 })
 
 
@@ -28,9 +29,10 @@ export class CourseOneComponent {
     courses:string[];
     authors:string[];
 
-    constructor(private _courseOneService:CourseOneService) {
+    constructor(private _courseOneService:CourseOneService, private _postService:PostService) {
         this.courses = _courseOneService.data.courses;
         this.authors = _courseOneService.data.authors;
+        (_postService.getPost().subscribe(data=>console.log(data)))
     }
 
 
