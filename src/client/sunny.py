@@ -3,6 +3,7 @@ import falcon
 import json
 from waitress import serve
 from falcon_cors import CORS
+import numpy as np
 
 cors = CORS(allow_origins_list=['http://localhost:3000/', 'http://localhost:*', 'http://localhost:3000'])
 
@@ -12,7 +13,7 @@ class QuoteResource:
         """Handles GET requests"""
         quote = {
             'quote': 'I\'ve always been more interested in the future than in the past.',
-            'author': 'Grace123'
+            'author': 'Grace123 random hihi: {}'.format(np.random.randn(1))
         }
         print(quote)
 
