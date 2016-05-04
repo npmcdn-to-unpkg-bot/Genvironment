@@ -13,16 +13,16 @@ export class PostService {
 
     getPost() {
 
-        let headers = new Headers({
-            'access-control-request-method': 'GET'
-        });
+        // let headers = new Headers({
+        //     'access-control-request-method': 'GET'
+        // });
+        //
+        // let options = new RequestOptions({
+        //     headers: headers
+        // });
 
-        let options = new RequestOptions({
-            headers: headers
-        });
 
-
-        return this._http.get("http://localhost/quote", options)
+        return this._http.get("http://localhost/quote")
             .map(res=>res.json())
     }
 }

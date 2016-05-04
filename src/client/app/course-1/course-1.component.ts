@@ -19,6 +19,8 @@ import {PostService} from './post.service'
                  {{author}}
             </li>
         </ul>
+        
+        <h2>{{bmai}}</h2>
 `,
     providers: [CourseOneService, PostService]
 })
@@ -28,11 +30,18 @@ export class CourseOneComponent {
 
     courses:string[];
     authors:string[];
+    bmai:string;
 
     constructor(private _courseOneService:CourseOneService, private _postService:PostService) {
         this.courses = _courseOneService.data.courses;
         this.authors = _courseOneService.data.authors;
-        (_postService.getPost().subscribe(data=>console.log(data)))
+        (_postService.getPost().subscribe(data=>console.log(data)));
+
+        _postService.getPost().subscribe(data => {
+            this.bmai = data.author;
+        })
+
+
     }
 
 
