@@ -15,6 +15,8 @@ import {PostService} from '../course-1/post.service'
     
 </myBarChart>
 
+        <button (click)="getNewData()">KLIK ME</button>
+
 
 `,
     directives: [BarChartDirective],
@@ -30,6 +32,16 @@ export class CourseTwoComponent {
     constructor(private _postService:PostService) {
 
         _postService.getPost().subscribe(data => {
+
+
+            this.bmai = data.author;
+
+        })
+    }
+
+    getNewData() {
+
+        this._postService.getPost().subscribe(data => {
 
 
             this.bmai = data.author;
