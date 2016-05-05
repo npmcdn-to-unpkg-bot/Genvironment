@@ -15,12 +15,16 @@ import {PostService} from './post.service'
         <h1>Authors</h1>
         <p>Title for the authors page</p>
         <ul>
-            <li *ngFor=" let author of authors">
+            <li *ngFor="let author of authors">
                  {{author}}
             </li>
         </ul>
         
-        <h2>{{bmai}}</h2>
+        <ul>
+                <li>
+                {{bmai}}
+                </li>
+        </ul>
 `,
     providers: [CourseOneService, PostService]
 })

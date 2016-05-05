@@ -13,7 +13,7 @@ class QuoteResource:
         """Handles GET requests"""
         quote = {
             'quote': 'I\'ve always been more interested in the future than in the past.',
-            'author': 'Grace123 random hihi: {}'.format(np.random.randn(1))
+            'author': 'Grace123 random hihi: {}'.format(np.random.randn(np.random.randint(0, 12, 1)))
         }
         print(quote)
 
