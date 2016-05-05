@@ -1,7 +1,7 @@
 import {Component} from "angular2/core";
 
 import {BarChartDirective} from "../bar-chart/bar-chart.directive";
-
+import {PostService} from '../course-1/post.service'
 
 
 @Component({
@@ -11,23 +11,32 @@ import {BarChartDirective} from "../bar-chart/bar-chart.directive";
         
 
         <i class="glyphicon" [class.active]="active"   (click)="changeClass()" ></i>
-        <myBarChart [barChartData]="[1,1,1]">
+        <myBarChart [barChartData]="bmai">
     
 </myBarChart>
 
 
 `,
-    directives: [BarChartDirective]
+    directives: [BarChartDirective],
+    providers: [PostService]
 })
 
 
 export class CourseTwoComponent {
 
     active;
+    bmai:number[];
 
-    constructor() {
-        this.active
+    constructor(private _postService:PostService) {
+
+        _postService.getPost().subscribe(data => {
+
+
+            this.bmai = data.author;
+
+        })
     }
+
 
     changeClass() {
 

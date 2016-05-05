@@ -21,9 +21,9 @@ import {PostService} from './post.service'
         </ul>
         
         <ul>
-                <li>
-                {{bmai}}
-                </li>
+            <li *ngFor="let bmr of bmai">
+                {{bmr}}
+            </li>
         </ul>
 `,
     providers: [CourseOneService, PostService]
@@ -42,7 +42,11 @@ export class CourseOneComponent {
         (_postService.getPost().subscribe(data=>console.log(data)));
 
         _postService.getPost().subscribe(data => {
+
+
             this.bmai = data.author;
+            // console.log((this.bmai[1]));
+
         })
 
 

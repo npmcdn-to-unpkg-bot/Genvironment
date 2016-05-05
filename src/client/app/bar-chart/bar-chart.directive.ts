@@ -14,7 +14,9 @@ export class BarChartDirective implements OnChanges {
 
     render(barChartData:any) {
 
-        let testData = [12, 45, 2, 31, 12];
+        console.log(barChartData);
+
+        let testData = barChartData;
 
         // create window for your chart;
         let margin = {top: 60, right: 60, bottom: 60, left: 30},
@@ -80,7 +82,7 @@ export class BarChartDirective implements OnChanges {
             bars.style('fill', (d) => {
 
 
-                if (d > 3) {
+                if (d < 1) {
                     return 'gray'
                 }
             });
