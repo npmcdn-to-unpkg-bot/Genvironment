@@ -1,4 +1,4 @@
-import {Component, Input, Output} from 'angular2/core'
+import {Component, Input, Output} from '@angular/core'
 
 @Component({
     selector: 'fav',

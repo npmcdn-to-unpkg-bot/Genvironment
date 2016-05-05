@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 
 import {BarChartDirective} from "../bar-chart/bar-chart.directive";
 import {PostService} from '../course-1/post.service'

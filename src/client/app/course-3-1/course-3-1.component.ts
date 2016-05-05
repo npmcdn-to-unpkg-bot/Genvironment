@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {ComponentOneThreeSubComponent} from './course-3-1-sub.component'
 
 @Component({

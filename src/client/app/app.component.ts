@@ -1,5 +1,5 @@
-import {Component, OnInit} from "angular2/core";
-import {ROUTER_DIRECTIVES, RouteConfig} from 'angular2/router';
+import {Component, OnInit} from "@angular/core";
+import {ROUTER_DIRECTIVES, RouteConfig} from '@angular/router';
 
 import "rxjs/Rx";
 import {CourseThreeComponent} from "./course-3/course-3.component";

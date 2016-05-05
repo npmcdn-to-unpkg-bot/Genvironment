@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component} from '@angular/core'
 import {Task} from './task/task.component'
 import {EditTask} from './edit-task/edit-task.component'
 

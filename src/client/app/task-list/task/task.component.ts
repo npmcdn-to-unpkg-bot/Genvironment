@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core'
+import {Component, Input} from '@angular/core'
 import {Checkbox} from './../../ui/checkbox/checkbox.component'
 
 @Component({
