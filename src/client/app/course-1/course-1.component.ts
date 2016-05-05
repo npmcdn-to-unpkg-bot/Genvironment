@@ -45,7 +45,6 @@ export class CourseOneComponent {
 
 
             this.bmai = data.author;
-            // console.log((this.bmai[1]));
 
         })
 
