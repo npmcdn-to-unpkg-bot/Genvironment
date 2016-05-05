@@ -9,7 +9,7 @@
 //    map tells the System loader where to look for things
 
     var map = {
-        'app': 'app',
+        'app': 'src/client/app',
         'rxjs': 'node_modules/rxjs',
         '@angular': 'node_modules/@angular'
     };
@@ -35,12 +35,12 @@
 
     packageNames.forEach(function (pkgName) {
         packages[pkgName] = {main: 'index.js', defaultExtension: 'js'}
-    })
+    });
 
     var config = {
         map: map,
         packages: packages
-    }
+    };
 
     // filterSystemConfig - index.html's chance to modify config before we register it.
     if (global.filterSystemConfig) {
