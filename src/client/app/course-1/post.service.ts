@@ -1,7 +1,7 @@
 /**
  * Created by imambaks on 4-5-2016.
  */
-import {Http, Headers, Request, RequestOptions} from 'angular2/http';
+import {Http, Headers, Request, RequestOptions} from '@angular/http';
 import {Injectable} from "angular2/core";
 
 @Injectable()

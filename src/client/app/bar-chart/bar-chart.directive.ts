@@ -1,4 +1,4 @@
-import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "angular2/core";
+import {Component, Directive, Attribute, ElementRef, Input, OnChanges} from "@angular/core";
 
 @Directive({
     selector: 'myBarChart'
